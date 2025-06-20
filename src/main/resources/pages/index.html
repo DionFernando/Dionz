@@ -207,7 +207,76 @@
         width: 100%;
       }
     }
+
+
+  /*  ----------------------------------------------------------------------------------*/
+
+    .categories-section {
+      background-color: var(--gold-light);
+      padding: 0;
+      margin: 0;
+      height: 30px; /* adjust if needed */
+      display: flex;
+      align-items: center;
+    }
+
+    .categories-flex {
+      width: 100%;
+      overflow-x: auto; /* horizontal scroll on very narrow screens */
+    }
+
+    .category-item {
+      background-color: transparent;
+      line-height: 1;
+      white-space: nowrap;
+      flex: 0 0 auto; /* prevent shrinking */
+      position: relative;
+    }
+
+    .category-item:not(:last-child)::after {
+      content: "•";
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--black);
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    .category-item span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--black);
+      padding: 4px 30px;
+      border-radius: 20px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .category-item span:hover {
+      background-color: var(--gold);
+      color: var(--black);
+    }
+
+    /* Responsive font scaling */
+    @media (max-width: 768px) {
+      .category-item span {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-item span {
+        font-size: 0.65rem;
+        padding: 2px 1px;
+      }
+    }
+
   </style>
+
+
 </head>
 <body>
 
@@ -276,6 +345,32 @@
 
   </div>
 </nav>
+
+<!--Categories-->
+<section class="categories-section">
+  <div class="container-fluid px-3 px-md-5">
+    <div class="categories-flex d-flex flex-nowrap justify-content-center text-center gap-3">
+      <div class="category-item">
+        <span>Men</span>
+      </div>
+      <div class="category-item">
+        <span>Women</span>
+      </div>
+      <div class="category-item">
+        <span>Bundle</span>
+      </div>
+      <div class="category-item">
+        <span>Couple</span>
+      </div>
+      <div class="category-item">
+        <span>Accessories</span>
+      </div>
+      <div class="category-item">
+        <span>Luxury</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
