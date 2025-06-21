@@ -7,10 +7,10 @@
   <style>
     :root {
       --gold: #edcd84;
+      --dark-gold: #c2a563;
       --black: #000;
       --white: #fff;
       --gray: #888;
-      --dark-gold: #c2a563;
     }
 
     body {
@@ -26,6 +26,63 @@
       font-size: 1.4rem;
     }
 
+    /* Categories Section */
+    .categories-section {
+      padding: 1rem 1.5rem;
+    }
+
+    .categories-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .categories-flex {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .category-item span {
+      color: var(--black);
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .sort-wrapper {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .categories-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .categories-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .sort-wrapper {
+        align-self: flex-end;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .sort-wrapper select {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Products Grid */
     .products-grid {
       display: grid;
       gap: 1rem;
@@ -105,7 +162,6 @@
       color: var(--gray);
     }
 
-    /* Mobile-specific adjustments */
     @media (max-width: 480px) {
       .card {
         padding: 0.6rem;
@@ -130,38 +186,38 @@
 
 <!-- Categories Section -->
 <section class="categories-section">
-  <div class="container-fluid px-3 px-md-5">
-    <div class="d-flex justify-content-between align-items-center">
-      <!-- Categories -->
-      <div class="categories-flex d-flex flex-nowrap text-center gap-3">
-        <div class="category-item"><span>Men</span></div>
-        <div class="category-item"><span>Women</span></div>
-        <div class="category-item"><span>Bundle</span></div>
-        <div class="category-item"><span>Couple</span></div>
-        <div class="category-item"><span>Accessories</span></div>
-        <div class="category-item"><span>Luxury</span></div>
-      </div>
+  <div class="categories-wrapper">
+    <!-- Categories -->
+    <div class="categories-flex">
+      <div class="category-item"><span>Men</span></div>
+      <div class="category-item"><span>Women</span></div>
+      <div class="category-item"><span>Bundle</span></div>
+      <div class="category-item"><span>Couple</span></div>
+      <div class="category-item"><span>Accessories</span></div>
+      <div class="category-item"><span>Luxury</span></div>
+    </div>
 
-      <!-- Sorting Dropdown -->
-      <div class="d-none d-md-block">
-        <select id="sortDropdown" class="form-select form-select-sm" style="width: auto; font-size: 0.8rem; border-radius: 20px; border: 1px solid var(--black); background-color: var(--white); color: var(--black);">
-          <option selected disabled>Sort by</option>
-          <option value="relevance">Relevance</option>
-          <option value="low-to-high">Price: Low to High</option>
-          <option value="high-to-low">Price: High to Low</option>
-        </select>
-      </div>
+    <!-- Sort Dropdown -->
+    <div class="sort-wrapper">
+      <select id="sortDropdown" class="form-select form-select-sm" style="width: auto; border-radius: 20px; border: 1px solid var(--black); background-color: var(--white); color: var(--black); padding: 0.2rem 1rem;">
+        <option selected disabled>Sort by</option>
+        <option value="relevance">Relevance</option>
+        <option value="low-to-high">Price: Low to High</option>
+        <option value="high-to-low">Price: High to Low</option>
+      </select>
     </div>
   </div>
 </section>
 
+<!-- Title -->
 <h2>Featured Watches</h2>
 
+<!-- Products Grid -->
 <div class="products-grid">
   <a href="item-details.html?id=1" class="card-link">
     <div class="card">
       <img src="src/main/resources/assets/watches/1/watch 1 - 1.webp" alt="Watch">
-      <h4>Binbond Casual Blue Skeleton Quartz Watch</h4>
+      <h4>Binbond Casual Blue Skeleton Quartz Watch - Youthful Style</h4>
       <div class="price">
         <span class="currency">LKR</span>
         <span class="current">3450.00</span>
