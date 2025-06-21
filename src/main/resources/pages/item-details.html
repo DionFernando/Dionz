@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Item Details</title>
+    <style>
+        .back-button {
+            position: absolute;
+            background-color: #edcd84;
+            border-radius: 50%;
+            padding: 7px;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #c2a563;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
 </head>
 <body>
 
-<section>
-    hi
-</section>
+<a href="javascript:history.back()">
+    <img src="../assets/imgs/back.png" alt="Back" class="back-button">
+</a>
 
 </body>
 </html>
