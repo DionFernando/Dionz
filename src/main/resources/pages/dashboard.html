@@ -22,18 +22,16 @@
     h2 {
       text-align: center;
       color: var(--black);
-      margin-bottom: 2rem;
-      margin-top: 1rem;
+      margin: 1rem 0;
+      font-size: 1.4rem;
     }
 
     .products-grid {
       display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-      padding-left: 1rem;
-      padding-right: 1rem;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      padding: 0 1rem 2rem;
     }
-
 
     .card-link {
       text-decoration: none;
@@ -43,84 +41,87 @@
 
     .card {
       background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
       overflow: hidden;
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 1rem;
+      padding: 0.8rem;
       cursor: pointer;
+      height: 100%;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
     }
 
     .card img {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1/1;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
     }
 
     .card h4 {
-      font-size: 0.70rem;
-      color: #8f8f8f;
-      margin-bottom: 0.4rem;
-      line-height: 1.1;
+      font-size: 0.65rem;
+      color: #7a7a7a;
+      margin: 0 0 0.3rem;
       font-weight: 400;
       display: -webkit-box;
-      -webkit-line-clamp: 1;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      min-height: 2.2em;
     }
 
     .price {
       display: flex;
       align-items: baseline;
-      gap: 6px;
-      margin-bottom: 0.8rem;
+      gap: 4px;
       flex-wrap: nowrap;
       justify-content: center;
-      white-space: nowrap; /* prevent wrap */
+      white-space: nowrap;
     }
 
     .price .currency {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--black);
     }
 
     .price .current {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: bold;
       color: var(--dark-gold);
     }
 
     .price .original {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       text-decoration: line-through;
       color: var(--gray);
     }
 
+    /* Mobile-specific adjustments */
     @media (max-width: 480px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
+      .card {
+        padding: 0.6rem;
       }
-    }
 
-    /* ↓↓↓ Responsive tweaks for small devices ↓↓↓ */
-    @media (max-width: 480px) {
+      .card h4 {
+        font-size: 0.6rem;
+        -webkit-line-clamp: 2;
+      }
+
       .price .current {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
 
       .price .original {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -154,15 +155,13 @@
   </div>
 </section>
 
-
 <h2>Featured Watches</h2>
 
 <div class="products-grid">
-
   <a href="item-details.html?id=1" class="card-link">
     <div class="card">
       <img src="src/main/resources/assets/watches/1/watch 1 - 1.webp" alt="Watch">
-      <h4>Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator, High Quality 30m, Lightweight Metal Band for Teens & Adults - Perfect for School, Sports, Holidays, Holiday Gift, Youthful Style...</h4>
+      <h4>Binbond Casual Blue Skeleton Quartz Watch</h4>
       <div class="price">
         <span class="currency">LKR</span>
         <span class="current">3450.00</span>
@@ -173,8 +172,7 @@
 
   <a href="item-details.html?id=2" class="card-link">
     <div class="card">
-      <img src="src/main/resources/assets/watches/1/watch 1 - 1.webp
-" alt="Women's Classic Watch">
+      <img src="src/main/resources/assets/watches/1/watch 1 - 1.webp" alt="Women's Classic Watch">
       <h4>Women's Classic Watch</h4>
       <div class="price">
         <span class="currency">LKR</span>
@@ -219,7 +217,6 @@
       </div>
     </div>
   </a>
-
 </div>
 
 </body>
