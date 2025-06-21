@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Item Details</title>
+
     <style>
         .back-button {
             position: absolute;
@@ -15,13 +17,22 @@
             height: 30px;
             cursor: pointer;
             box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2); /* Gold glow */
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease;
+            object-fit: contain;
         }
 
         .back-button:hover {
-            box-shadow: 0 0 15px 10px rgba(194, 165, 99, 0.8); /* Brighter glow on hover */
+            box-shadow: 0 0 15px 10px rgba(194, 165, 99, 0.6); /* Brighter glow on hover */
+        }
+
+        @media (max-width: 450px) {
+            .back-button {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
+
 
 </head>
 <body>
