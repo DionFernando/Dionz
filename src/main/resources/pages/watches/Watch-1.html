@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Item Details</title>
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #edcd84;
+            padding: 6px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-button:hover {
+            box-shadow: 0 0 10px 4px #c2a563;
+            animation: shake 0.4s ease-in-out;
+        }
+        .back-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0);}
+            25% { transform: translateX(-3px);}
+            50% { transform: translateX(3px);}
+            75% { transform: translateX(-3px);}
+            100% { transform: translateX(0);}
+        }
+
+        /* Container grid */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto 20px;
+            display: grid;
+            grid-template-columns: 60px 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        /* Left thumbnails column */
+        .thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .thumbs img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border: 2px solid transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+        .thumbs img.active,
+        .thumbs img:hover {
+            border-color: #edcd84;
+        }
+
+        /* Main image */
+        .main-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgb(0 0 0 / 0.1);
+        }
+
+        /* Right side details */
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        .breadcrumb a {
+            color: #666;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Title */
+        .title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        /* Price section */
+        .price-section {
+            font-size: 26px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .price-section .discount {
+            color: #ff6600;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 3px 8px;
+            border: 1.5px solid #ff6600;
+            border-radius: 4px;
+        }
+        .price-section .original-price {
+            color: #888;
+            font-size: 18px;
+            text-decoration: line-through;
+        }
+
+        /* Shipping info */
+        .shipping-info {
+            background-color: #fdf6e3;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .shipping-info svg {
+            fill: #2e7d32;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Description */
+        .description {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Brand label */
+        .brand-label {
+            background-color: #d0d0d0;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Colors */
+        .colors {
+            display: flex;
+            gap: 12px;
+        }
+        .colors .color-option {
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 4px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .colors .color-option img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        .colors .color-option.selected {
+            border-color: #edcd84;
+        }
+
+        /* Quantity selector */
+        .quantity {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .quantity label {
+            font-size: 16px;
+        }
+        .quantity select {
+            padding: 6px 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1.5px solid #ccc;
+        }
+
+        /* Buy button */
+        .buy-btn {
+            margin-top: 30px;
+            background-color: #edcd84;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 0;
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgb(237 205 132 / 0.7);
+            transition: background-color 0.3s ease;
+        }
+        .buy-btn:hover {
+            background-color: #c2a563;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 50px 1fr 1fr;
+                gap: 30px;
+            }
+            .colors .color-option img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-top: 100px;
+            }
+            .thumbs {
+                flex-direction: row;
+                justify-content: center;
+                overflow-x: auto;
+            }
+            .thumbs img {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .main-image {
+                max-height: 400px;
+                margin: 0 auto;
+                display: block;
+            }
+            .details {
+                gap: 15px;
+            }
+            .colors {
+                justify-content: center;
+            }
+            .buy-btn {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .back-button {
+                width: 28px !important;
+                height: 28px !important;
+                top: 15px !important;
+                left: 15px !important;
+            }
+            .price-section {
+                font-size: 20px;
+            }
+            .quantity select {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../../assets/imgs/back.png" alt="Back" />
+</a>
+
+<div class="container">
+
+    <!-- Left thumbnails -->
+    <div class="thumbs" id="thumbs">
+        <img src="https://m.media-amazon.com/images/I/71t5LZ8Y8fL._UL1500_.jpg" alt="Watch 1" class="active" />
+        <img src="https://m.media-amazon.com/images/I/71nlElhhUgL._UL1500_.jpg" alt="Watch 2" />
+        <img src="https://m.media-amazon.com/images/I/71V-x6QLvDL._UL1500_.jpg" alt="Watch 3" />
+        <img src="https://m.media-amazon.com/images/I/71cvwD2dHGL._UL1500_.jpg" alt="Watch 4" />
+        <img src="https://m.media-amazon.com/images/I/61mMJO6w6GL._UL1500_.jpg" alt="Watch 5" />
+    </div>
+
+    <!-- Main Image -->
+    <div>
+        <div style="position: relative;">
+            <img id="mainImage" src="https://m.media-amazon.com/images/I/71t5LZ8Y8fL._UL1500_.jpg" alt="Main Watch" class="main-image" />
+
+            <!-- Left Arrow -->
+            <button id="prevBtn" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; padding: 10px; cursor: pointer; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">‹</button>
+
+            <!-- Right Arrow -->
+            <button id="nextBtn" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; padding: 10px; cursor: pointer; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">›</button>
+        </div>
+    </div>
+
+    <!-- Details Section -->
+    <div class="details">
+
+        <h1 class="title">Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator</h1>
+
+        <div class="price-section">
+            <div>LKR 2,944.91</div>
+            <div class="original-price">LKR 4,369.28</div>
+        </div>
+
+        <p class="description">
+            Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator, High Quality 30m, Lightweight Metal Band for Teens & Adults - Perfect for School, Sports, Holidays, Holiday Gift, Youthful Style, Durable Craftsship, Casual Attire, Modern Design, Precision Timekeeping, Stylish Timepiece, Student Accessory.
+        </p>
+
+        <div class="brand-label" aria-label="Brand">Brand: BINBOND</div>
+
+        <div class="colors" id="colors">
+            <div class="color-option selected" tabindex="0" aria-label="White Steel Black Surface" role="button">
+                <img src="https://m.media-amazon.com/images/I/71V-x6QLvDL._UL1500_.jpg" alt="White Steel Black Surface" />
+            </div>
+            <div class="color-option" tabindex="0" aria-label="Blue Steel Blue Surface" role="button">
+                <img src="https://m.media-amazon.com/images/I/71t5LZ8Y8fL._UL1500_.jpg" alt="Blue Steel Blue Surface" />
+            </div>
+            <div class="color-option" tabindex="0" aria-label="Golden strap and black dial" role="button">
+                <img src="https://m.media-amazon.com/images/I/71nlElhhUgL._UL1500_.jpg" alt="Golden strap and black dial" />
+            </div>
+            <div class="color-option" tabindex="0" aria-label="Black Steel Rose Shell" role="button">
+                <img src="https://m.media-amazon.com/images/I/71cvwD2dHGL._UL1500_.jpg" alt="Black Steel Rose Shell" />
+            </div>
+            <div class="color-option" tabindex="0" aria-label="Black Steel Black Surface" role="button">
+                <img src="https://m.media-amazon.com/images/I/61mMJO6w6GL._UL1500_.jpg" alt="Black Steel Black Surface" />
+            </div>
+        </div>
+
+        <div class="quantity">
+            <label for="qty">Qty:</label>
+            <select id="qty" name="qty" aria-label="Select quantity">
+                <!-- Dynamically generated 1–50 -->
+                <script>
+                    for (let i = 1; i <= 50; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+
+        <button class="buy-btn" aria-label="Buy now">Buy Now</button>
+
+    </div>
+</div>
+
+<script>
+    // Gallery thumbnails to main image
+    const thumbs = document.querySelectorAll('.thumbs img');
+    const mainImage = document.getElementById('mainImage');
+
+    thumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            // Remove active class from all thumbs
+            thumbs.forEach(t => t.classList.remove('active'));
+            // Set clicked thumb active
+            thumb.classList.add('active');
+            // Change main image src
+            mainImage.src = thumb.src;
+            mainImage.alt = thumb.alt;
+        });
+    });
+
+    // Color option click also changes main image and active states
+    const colorOptions = document.querySelectorAll('.color-option');
+    colorOptions.forEach((option, index) => {
+        option.addEventListener('click', () => {
+            // Remove selected class from all
+            colorOptions.forEach(o => o.classList.remove('selected'));
+            option.classList.add('selected');
+            // Change main image to that color's image (same as color option image)
+            const img = option.querySelector('img');
+            mainImage.src = img.src;
+            mainImage.alt = img.alt;
+
+            // Also update thumbnails to highlight that color's first image
+            thumbs.forEach(t => t.classList.remove('active'));
+            // Optional: highlight first thumb that matches selected color (simplified here)
+            // Just highlight the thumb with same src
+            thumbs.forEach(t => {
+                if (t.src === img.src) {
+                    t.classList.add('active');
+                }
+            });
+        });
+
+        // Accessibility: allow keyboard selection with Enter or Space
+        option.addEventListener('keydown', e => {
+            if(e.key === "Enter" || e.key === " "){
+                e.preventDefault();
+                option.click();
+            }
+        });
+    });
+</script>
+
+<script>
+    // Arrows for navigating images
+    let currentIndex = 0;
+
+    const updateMainImage = (index) => {
+        const thumbsArray = Array.from(thumbs);
+        currentIndex = index;
+
+        thumbs.forEach(t => t.classList.remove('active'));
+        const selectedThumb = thumbs[currentIndex];
+        selectedThumb.classList.add('active');
+
+        mainImage.src = selectedThumb.src;
+        mainImage.alt = selectedThumb.alt;
+    };
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+        updateMainImage(currentIndex);
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % thumbs.length;
+        updateMainImage(currentIndex);
+    });
+
+    // When clicking a thumbnail manually
+    thumbs.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+            currentIndex = index;
+            updateMainImage(currentIndex);
+        });
+    });
+
+</script>
+
+</body>
+</html>
