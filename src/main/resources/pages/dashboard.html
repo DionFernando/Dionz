@@ -49,8 +49,8 @@
 
     .category-item span {
       color: var(--black);
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: 400;
+      font-size: 0.75rem;
       white-space: nowrap;
       cursor: pointer;
     }
@@ -72,6 +72,10 @@
         gap: 0.6rem;
       }
 
+      .category-item span {
+        font-size: 0.7rem; /* Smaller font for categories */
+      }
+
       .sort-wrapper {
         align-self: flex-end;
         width: 100%;
@@ -80,9 +84,29 @@
       }
 
       .sort-wrapper select {
-        font-size: 0.85rem;
+        font-size: 0.65rem;
+        padding: 0.15rem 0.3rem;
+        border-radius: 16px;
       }
     }
+
+
+    @media (min-width: 769px) {
+      .categories-section {
+        padding: 0.5rem 1.5rem;
+      }
+
+      .category-item span {
+        font-size: 0.9rem;
+        font-weight: 400;
+      }
+
+      .sort-wrapper select {
+        padding: 0.2rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+
 
     /* Products Grid */
     .products-grid {
