@@ -16,19 +16,28 @@
             width: 30px;
             height: 30px;
             cursor: pointer;
-            box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2); /* Gold glow */
             transition: box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease;
             object-fit: contain;
         }
 
         .back-button:hover {
-            box-shadow: 0 0 15px 10px rgba(194, 165, 99, 0.6); /* Brighter glow on hover */
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            50% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
         }
 
         @media (max-width: 450px) {
             .back-button {
-                width: 30px;
-                height: 30px;
+                top: 20px;
+                left: 20px;
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
