@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dionz | Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --gold: #edcd84;
+      --black: #000;
+      --white: #fff;
+      --gray: #888;
+      --dark-gold: #c2a563;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--black);
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+    }
+
+    .products-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      font-size: 0.70rem;
+      color: #8f8f8f;
+      margin-bottom: 0.4rem;
+      line-height: 1.1;
+      font-weight: 400;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 0.8rem;
+      flex-wrap: nowrap;
+      justify-content: center;
+      white-space: nowrap; /* prevent wrap */
+    }
+
+    .price .currency {
+      font-size: 0.8rem;
+      color: var(--black);
+    }
+
+    .price .current {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--dark-gold);
+    }
+
+    .price .original {
+      font-size: 0.85rem;
+      text-decoration: line-through;
+      color: var(--gray);
+    }
+
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 cards per row */
+      }
+    }
+
+    /* ↓↓↓ Responsive tweaks for small devices ↓↓↓ */
+    @media (max-width: 480px) {
+      .price .current {
+        font-size: 1rem;
+      }
+
+      .price .original {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Categories Section -->
+<section class="categories-section">
+  <div class="container-fluid px-3 px-md-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Categories -->
+      <div class="categories-flex d-flex flex-nowrap text-center gap-3">
+        <div class="category-item"><span>Men</span></div>
+        <div class="category-item"><span>Women</span></div>
+        <div class="category-item"><span>Bundle</span></div>
+        <div class="category-item"><span>Couple</span></div>
+        <div class="category-item"><span>Accessories</span></div>
+        <div class="category-item"><span>Luxury</span></div>
+      </div>
+
+      <!-- Sorting Dropdown -->
+      <div class="d-none d-md-block">
+        <select id="sortDropdown" class="form-select form-select-sm" style="width: auto; font-size: 0.8rem; border-radius: 20px; border: 1px solid var(--black); background-color: var(--white); color: var(--black);">
+          <option selected disabled>Sort by</option>
+          <option value="relevance">Relevance</option>
+          <option value="low-to-high">Price: Low to High</option>
+          <option value="high-to-low">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<h2>Featured Watches</h2>
+
+<div class="products-grid">
+
+  <a href="item-details.html?id=1" class="card-link">
+    <div class="card">
+      <img src="../assets/watches/1/watch%201%20-%201.webp" alt="Watch">
+      <h4>Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator, High Quality 30m, Lightweight Metal Band for Teens & Adults - Perfect for School, Sports, Holidays, Holiday Gift, Youthful Style...</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">3450.00</span>
+        <span class="original">4697.00</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="item-details.html?id=2" class="card-link">
+    <div class="card">
+      <img src="../assets/watches/1/watch%201%20-%201.webp" alt="Women's Classic Watch">
+      <h4>Women's Classic Watch</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">5,490</span>
+        <span class="original">6,990</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="item-details.html?id=3" class="card-link">
+    <div class="card">
+      <img src="assets/items/item3.jpg" alt="Bundle Offer (Couple)">
+      <h4>Bundle Offer (Couple)</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">10,990</span>
+        <span class="original">12,990</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="item-details.html?id=4" class="card-link">
+    <div class="card">
+      <img src="assets/items/item4.jpg" alt="Men's Black Steel">
+      <h4>Men's Black Steel</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">7,250</span>
+        <span class="original">8,750</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="item-details.html?id=5" class="card-link">
+    <div class="card">
+      <img src="assets/items/item5.jpg" alt="Women's Gold Rose">
+      <h4>Women's Gold Rose</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">6,750</span>
+        <span class="original">7,950</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>

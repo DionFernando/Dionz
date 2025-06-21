@@ -212,7 +212,7 @@
   /*  ----------------------------------------------------------------------------------*/
 
     .categories-section {
-      background-color: var(--gold-light);
+      background-color: var(--gold);
       padding: 0;
       margin: 0;
       height: 30px; /* adjust if needed */
@@ -255,7 +255,7 @@
     }
 
     .category-item span:hover {
-      background-color: var(--gold);
+      background-color: var(--gold-light);
       color: var(--black);
     }
 
@@ -346,31 +346,22 @@
   </div>
 </nav>
 
-<!--Categories-->
-<section class="categories-section">
-  <div class="container-fluid px-3 px-md-5">
-    <div class="categories-flex d-flex flex-nowrap justify-content-center text-center gap-3">
-      <div class="category-item">
-        <span>Men</span>
-      </div>
-      <div class="category-item">
-        <span>Women</span>
-      </div>
-      <div class="category-item">
-        <span>Bundle</span>
-      </div>
-      <div class="category-item">
-        <span>Couple</span>
-      </div>
-      <div class="category-item">
-        <span>Accessories</span>
-      </div>
-      <div class="category-item">
-        <span>Luxury</span>
-      </div>
-    </div>
-  </div>
-</section>
+<!--Dynamic main section-->
+<main id="dynamicContent"></main>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    fetch("dashboard.html")
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById("dynamicContent").innerHTML = html;
+            })
+            .catch(error => {
+              document.getElementById("dynamicContent").innerHTML = "<p>Failed to load dashboard.</p>";
+              console.error("Error loading dashboard:", error);
+            });
+  });
+</script>
 
 </body>
 </html>
