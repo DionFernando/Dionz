@@ -214,71 +214,7 @@
 
   /*  ----------------------------------------------------------------------------------*/
 
-    .categories-section {
-      background-color: var(--gold);
-      padding: 0;
-      margin: 0;
-      height: 30px; /* adjust if needed */
-      display: flex;
-      align-items: center;
-    }
-
-    .categories-flex {
-      width: 100%;
-      overflow-x: auto; /* horizontal scroll on very narrow screens */
-    }
-
-    .category-item {
-      background-color: transparent;
-      line-height: 1;
-      white-space: nowrap;
-      flex: 0 0 auto; /* prevent shrinking */
-      position: relative;
-    }
-
-    .category-item:not(:last-child)::after {
-      content: "•";
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--black);
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
-
-    .category-item span {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--black);
-      padding: 4px 30px;
-      border-radius: 20px;
-      transition: 0.2s;
-      display: inline-block;
-    }
-
-    .category-item span:hover {
-      background-color: var(--gold-light);
-      color: var(--black);
-    }
-
-    /* Responsive font scaling */
-    @media (max-width: 768px) {
-      .category-item span {
-        font-size: 0.75rem;
-        padding: 3px 8px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .category-item span {
-        font-size: 0.65rem;
-        padding: 2px 1px;
-      }
-    }
-
   </style>
-
 
 </head>
 <body>
@@ -301,7 +237,7 @@
 
     <!-- Desktop View -->
     <div class="d-none d-lg-flex w-100 align-items-center justify-content-between">
-      <!-- Left: Logo + Navigation -->
+      <!-- Left: Logo + Navigation + Search -->
       <div class="d-flex align-items-center gap-4">
         <a class="navbar-brand" href="#">
           <img src="src/main/resources/assets/logo/Transparent%20W-2.png" alt="Dionz Logo" />
@@ -311,27 +247,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
-            </a>
-<!--            <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">-->
-<!--              <li><a class="dropdown-item" href="#">Mens</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Womens</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Bundle</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Couple</a></li>-->
-<!--              <li><a class="dropdown-item" href="#">Accessories</a></li>-->
-<!--            </ul>-->
-          </li>
         </ul>
+
+        <!-- Search Bar (Now next to Home) -->
+        <div class="search-bar ms-3">
+          <input type="text" placeholder="Search watches..." />
+        </div>
       </div>
 
-      <!-- Right: Search + Phone + WhatsApp -->
+      <!-- Right: Phone + WhatsApp -->
       <div class="d-flex align-items-center gap-3">
-        <div class="search-bar">
-          <input type="text" placeholder="search watches..." />
-        </div>
-
         <div class="phone d-flex align-items-center">
           <img src="src/main/resources/assets/imgs/whatsapp.png" alt="WhatsApp Icon" />
           <span>+94 76 714 9543</span>
@@ -348,6 +273,7 @@
 
   </div>
 </nav>
+
 
 <!--Dynamic main section-->
 <main id="dynamicContent"></main>
