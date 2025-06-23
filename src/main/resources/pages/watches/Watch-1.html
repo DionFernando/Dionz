@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Item Details</title>
     <style>
-        /* Reset */
         * {
             box-sizing: border-box;
         }
@@ -13,6 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             color: #333;
+            position: relative;
         }
         a {
             text-decoration: none;
@@ -52,7 +52,19 @@
             100% { transform: translateX(0);}
         }
 
-        /* Container grid */
+        /* ID Tag */
+        .product-id {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #edcd84;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
+
         .container {
             max-width: 1200px;
             margin: 60px auto 20px;
@@ -61,7 +73,6 @@
             gap: 40px;
         }
 
-        /* Left thumbnails column */
         .thumbs {
             display: flex;
             flex-direction: column;
@@ -81,7 +92,6 @@
             border-color: #edcd84;
         }
 
-        /* Main image */
         .main-image {
             width: 100%;
             max-height: 600px;
@@ -90,34 +100,18 @@
             box-shadow: 0 6px 20px rgb(0 0 0 / 0.1);
         }
 
-        /* Right side details */
         .details {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-        .breadcrumb a {
-            color: #666;
-        }
-        .breadcrumb span {
-            margin: 0 5px;
-        }
-
-        /* Title */
         .title {
             font-weight: 700;
             font-size: 24px;
             line-height: 1.3;
         }
 
-        /* Price section */
         .price-section {
             font-size: 26px;
             font-weight: 700;
@@ -133,31 +127,12 @@
             text-decoration: line-through;
         }
 
-        /* Shipping info */
-        .shipping-info {
-            background-color: #fdf6e3;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #444;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        .shipping-info svg {
-            fill: #2e7d32;
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Description */
         .description {
             font-size: 15px;
             line-height: 1.5;
             color: #444;
         }
 
-        /* Brand label */
         .brand-label {
             background-color: #d0d0d0;
             padding: 4px 8px;
@@ -168,33 +143,40 @@
             margin-top: 8px;
         }
 
-        /* Colors */
         .colors {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .color-option:hover{
-            border: 1px solid black;
-        }
-        .colors .color-option {
+        .color-option {
             border: 2px solid transparent;
             border-radius: 8px;
             padding: 4px;
             cursor: pointer;
             transition: border-color 0.3s ease;
+            text-align: center;
         }
-        .colors .color-option img {
+        .color-option:hover {
+            border: 1px solid black;
+        }
+        .color-option img {
             width: 60px;
             height: 60px;
             object-fit: contain;
             border-radius: 6px;
         }
-        .colors .color-option.selected {
+        .color-option.selected {
             border-color: #edcd84;
         }
 
-        /* Quantity selector */
+        .color-label {
+            font-size: 13px;
+            margin-top: 4px;
+            color: #333;
+            font-weight: 500;
+        }
+
         .quantity {
             margin-top: 20px;
             display: flex;
@@ -202,9 +184,7 @@
             gap: 10px;
             font-weight: 600;
         }
-        .quantity label {
-            font-size: 16px;
-        }
+
         .quantity select {
             padding: 6px 10px;
             font-size: 16px;
@@ -212,7 +192,6 @@
             border: 1.5px solid #ccc;
         }
 
-        /* Buy button */
         .buy-btn {
             margin-top: 30px;
             background-color: #edcd84;
@@ -230,16 +209,11 @@
             background-color: #c2a563;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 50px 1fr 1fr;
-                gap: 30px;
-            }
-            .colors .color-option img {
-                width: 50px;
-                height: 50px;
-            }
+        .notice {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
         }
 
         @media (max-width: 700px) {
@@ -274,33 +248,19 @@
                 font-size: 20px;
             }
         }
-
-        @media (max-width: 400px) {
-            .back-button {
-                width: 28px !important;
-                height: 28px !important;
-                top: 15px !important;
-                left: 15px !important;
-            }
-            .price-section {
-                font-size: 20px;
-            }
-            .quantity select {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
 
-<!-- Back Button -->
+<!-- Back and ID -->
 <a href="javascript:history.back()" class="back-button" aria-label="Go back">
     <img src="../../assets/imgs/back.png" alt="Back" />
 </a>
+<div class="product-id">ID: WM2777</div>
 
 <div class="container">
 
-    <!-- Left thumbnails -->
+    <!-- Thumbnails -->
     <div class="thumbs" id="thumbs">
         <img src="../../assets/watches/1/watch 1 - 1.webp" alt="Watch 1" class="active" />
         <img src="../../assets/watches/1/watch 1 - 8.webp" alt="Watch 2" />
@@ -309,57 +269,57 @@
         <img src="../../assets/watches/1/watch 1 - 11.webp" alt="Watch 5" />
     </div>
 
-    <!-- Main Image -->
+    <!-- Main Image with Arrows -->
     <div>
         <div style="position: relative;">
             <img id="mainImage" src="../../assets/watches/1/watch 1 - 1.webp" alt="Main Watch" class="main-image" />
-
-            <!-- Left Arrow -->
-            <button id="prevBtn" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; padding: 10px; cursor: pointer; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">‹</button>
-
-            <!-- Right Arrow -->
-            <button id="nextBtn" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; padding: 10px; cursor: pointer; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">›</button>
+            <button id="prevBtn" style="position: absolute; top: 50%; left: 0;">‹</button>
+            <button id="nextBtn" style="position: absolute; top: 50%; right: 0;">›</button>
         </div>
     </div>
 
-    <!-- Details Section -->
+    <!-- Product Details -->
     <div class="details">
-
-        <h1 class="title">Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator</h1>
+        <h1 class="title">Binbond's Casual Blue Skeleton Quartz Watch with Date Indicator</h1>
 
         <div class="price-section">
-            <div>LKR 3450.00</div>
-            <div class="original-price">LKR 4,369.28</div>
+            <div id="price">LKR 3,400.00</div>
+            <div class="original-price" id="originalPrice">LKR 4,369.28</div>
         </div>
 
         <p class="description">
-            Binbond 's Casual Blue Skeleton Quartz Watch with Date Indicator, High Quality 30m, Lightweight Metal Band for Teens & Adults - Perfect for School, Sports, Holidays, Holiday Gift, Youthful Style, Durable Craftsship, Casual Attire, Modern Design, Precision Timekeeping, Stylish Timepiece, Student Accessory.
+            Binbond's Casual Blue Skeleton Quartz Watch with Date Indicator. High quality build, lightweight metal band. Great for school, sports, holidays, and casual wear.
         </p>
 
-        <div class="brand-label" aria-label="Brand">Brand: BINBOND</div>
+        <div class="brand-label">Brand: BINBOND</div>
 
+        <!-- Color Options with Price -->
         <div class="colors" id="colors">
-            <div class="color-option selected" tabindex="0" aria-label="White Steel Black Surface" role="button">
-                <img src="../../assets/watches/1/watch 1 - 3.webp" alt="Red" />
+            <div class="color-option selected" data-price="3,400" data-original="4369.28">
+                <img src="../../assets/watches/1/watch 1 - 3.webp" alt="White Steel Black Surface" />
+                <div class="color-label">Blue</div>
             </div>
-            <div class="color-option" tabindex="0" aria-label="White Steel Black Surface" role="button">
-                <img src="../../assets/watches/1/watch 1 - 2.webp" alt="Red" />
+            <div class="color-option" data-price="3,340" data-original="4067.01">
+                <img src="../../assets/watches/1/watch 1 - 2.webp" alt="White Steel Black Surface" />
+                <div class="color-label">Gold</div>
             </div>
-            <div class="color-option" tabindex="0" aria-label="Blue Steel Blue Surface" role="button">
-                <img src="../../assets/watches/1/watch 1 - 4.webp" alt="Blue" />
+            <div class="color-option" data-price="3,245" data-original="3782.25">
+                <img src="../../assets/watches/1/watch 1 - 4.webp" alt="Blue Steel Blue Surface" />
+                <div class="color-label">Silver</div>
             </div>
-            <div class="color-option" tabindex="0" aria-label="Golden strap and black dial" role="button">
-                <img src="../../assets/watches/1/watch 1 - 5.webp" alt="Gold" />
+            <div class="color-option" data-price="2,980" data-original="4701.26">
+                <img src="../../assets/watches/1/watch 1 - 5.webp" alt="Golden Strap Black Dial" />
+                <div class="color-label">Black-Rose</div>
             </div>
-            <div class="color-option" tabindex="0" aria-label="Black Steel Rose Shell" role="button">
-                <img src="../../assets/watches/1/watch 1 - 6.webp" alt="Black" />
+            <div class="color-option" data-price="3,120" data-original="4556.98">
+                <img src="../../assets/watches/1/watch 1 - 6.webp" alt="Black Steel Rose Shell" />
+                <div class="color-label">Black</div>
             </div>
         </div>
 
         <div class="quantity">
             <label for="qty">Qty:</label>
-            <select id="qty" name="qty" aria-label="Select quantity">
-                <!-- Dynamically generated 1–50 -->
+            <select id="qty" name="qty">
                 <script>
                     for (let i = 1; i <= 50; i++) {
                         document.write(`<option value="${i}">${i}</option>`);
@@ -368,96 +328,61 @@
             </select>
         </div>
 
-
-        <button class="buy-btn" aria-label="Buy now">Buy Now</button>
-
+        <button class="buy-btn">Buy Now</button>
+        <div class="notice">After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
     </div>
 </div>
 
 <script>
-    // Gallery thumbnails to main image
     const thumbs = document.querySelectorAll('.thumbs img');
     const mainImage = document.getElementById('mainImage');
+    const colorOptions = document.querySelectorAll('.color-option');
+    const price = document.getElementById("price");
+    const originalPrice = document.getElementById("originalPrice");
 
-    thumbs.forEach(thumb => {
+    thumbs.forEach((thumb, index) => {
         thumb.addEventListener('click', () => {
-            // Remove active class from all thumbs
             thumbs.forEach(t => t.classList.remove('active'));
-            // Set clicked thumb active
             thumb.classList.add('active');
-            // Change main image src
             mainImage.src = thumb.src;
             mainImage.alt = thumb.alt;
         });
     });
 
-    // Color option click also changes main image and active states
-    const colorOptions = document.querySelectorAll('.color-option');
-    colorOptions.forEach((option, index) => {
+    colorOptions.forEach(option => {
         option.addEventListener('click', () => {
-            // Remove selected class from all
             colorOptions.forEach(o => o.classList.remove('selected'));
             option.classList.add('selected');
-            // Change main image to that color's image (same as color option image)
             const img = option.querySelector('img');
             mainImage.src = img.src;
             mainImage.alt = img.alt;
 
-            // Also update thumbnails to highlight that color's first image
             thumbs.forEach(t => t.classList.remove('active'));
-            // Optional: highlight first thumb that matches selected color (simplified here)
-            // Just highlight the thumb with same src
             thumbs.forEach(t => {
-                if (t.src === img.src) {
-                    t.classList.add('active');
-                }
+                if (t.src === img.src) t.classList.add('active');
             });
-        });
 
-        // Accessibility: allow keyboard selection with Enter or Space
-        option.addEventListener('keydown', e => {
-            if(e.key === "Enter" || e.key === " "){
-                e.preventDefault();
-                option.click();
-            }
+            price.textContent = `LKR ${option.dataset.price}.00`;
+            originalPrice.textContent = `LKR ${parseFloat(option.dataset.original).toFixed(2)}`;
         });
     });
-</script>
 
-<script>
-    // Arrows for navigating images
+    // Image arrows
     let currentIndex = 0;
-
     const updateMainImage = (index) => {
-        const thumbsArray = Array.from(thumbs);
-        currentIndex = index;
-
         thumbs.forEach(t => t.classList.remove('active'));
-        const selectedThumb = thumbs[currentIndex];
-        selectedThumb.classList.add('active');
-
-        mainImage.src = selectedThumb.src;
-        mainImage.alt = selectedThumb.alt;
+        thumbs[index].classList.add('active');
+        mainImage.src = thumbs[index].src;
+        mainImage.alt = thumbs[index].alt;
     };
-
     document.getElementById("prevBtn").addEventListener("click", () => {
         currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
         updateMainImage(currentIndex);
     });
-
     document.getElementById("nextBtn").addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % thumbs.length;
         updateMainImage(currentIndex);
     });
-
-    // When clicking a thumbnail manually
-    thumbs.forEach((thumb, index) => {
-        thumb.addEventListener('click', () => {
-            currentIndex = index;
-            updateMainImage(currentIndex);
-        });
-    });
-
 </script>
 
 </body>
