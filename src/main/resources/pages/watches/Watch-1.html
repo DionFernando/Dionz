@@ -333,12 +333,16 @@
     </div>
 </div>
 
+<!-- JavaScript section at the bottom -->
 <script>
     const thumbs = document.querySelectorAll('.thumbs img');
     const mainImage = document.getElementById('mainImage');
     const colorOptions = document.querySelectorAll('.color-option');
     const price = document.getElementById("price");
     const originalPrice = document.getElementById("originalPrice");
+    const qtySelect = document.getElementById("qty");
+    const productId = document.querySelector(".product-id").textContent.trim();
+    const buyNowBtn = document.getElementById("buyNowBtn");
 
     thumbs.forEach((thumb, index) => {
         thumb.addEventListener('click', () => {
@@ -382,6 +386,19 @@
     document.getElementById("nextBtn").addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % thumbs.length;
         updateMainImage(currentIndex);
+    });
+
+    // Buy Now button WhatsApp redirect
+    buyNowBtn.addEventListener("click", () => {
+        const selectedColor = document.querySelector('.color-option.selected .color-label').textContent.trim();
+        const quantity = qtySelect.value;
+        const id = productId.replace("ID:", "").trim();
+
+        const message = `Hi, I'm interested in the watch:\n\n🆔 ID: ${id}\n🎨 Color: ${selectedColor}\n🔢 Quantity: ${quantity}`;
+        const phone = "94767149543"; // Your WhatsApp Business number without "+"
+        const encodedMsg = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phone}?text=${encodedMsg}`;
+        window.open(whatsappURL, "_blank");
     });
 </script>
 
