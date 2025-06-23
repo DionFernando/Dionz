@@ -371,7 +371,6 @@
         });
     });
 
-    // Image arrows
     let currentIndex = 0;
     const updateMainImage = (index) => {
         thumbs.forEach(t => t.classList.remove('active'));
@@ -379,28 +378,33 @@
         mainImage.src = thumbs[index].src;
         mainImage.alt = thumbs[index].alt;
     };
+
     document.getElementById("prevBtn").addEventListener("click", () => {
         currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
         updateMainImage(currentIndex);
     });
+
     document.getElementById("nextBtn").addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % thumbs.length;
         updateMainImage(currentIndex);
     });
 
-    // Buy Now button WhatsApp redirect
+    // ✅ WhatsApp Buy Now Integration
     buyNowBtn.addEventListener("click", () => {
-        const selectedColor = document.querySelector('.color-option.selected .color-label').textContent.trim();
+        const selectedColorOption = document.querySelector('.color-option.selected .color-label');
+        const selectedColor = selectedColorOption ? selectedColorOption.textContent.trim() : 'Not selected';
         const quantity = qtySelect.value;
         const id = productId.replace("ID:", "").trim();
 
-        const message = `Hi, I'm interested in the watch:\n\n🆔 ID: ${id}\n🎨 Color: ${selectedColor}\n🔢 Quantity: ${quantity}`;
-        const phone = "94767149543"; // Your WhatsApp Business number without "+"
+        const message = `Hi, I'm interested in the following product:\n\n🆔 ID: ${id}\n🎨 Color: ${selectedColor}\n🔢 Quantity: ${quantity}`;
+        const phone = "94767149543"; // Your WhatsApp Business number (no +)
         const encodedMsg = encodeURIComponent(message);
         const whatsappURL = `https://wa.me/${phone}?text=${encodedMsg}`;
+
         window.open(whatsappURL, "_blank");
     });
 </script>
+
 
 </body>
 </html>
