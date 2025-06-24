@@ -154,32 +154,6 @@
       }
     }
 
-    .search-bar {
-      position: relative;
-      z-index: 1;
-    }
-
-    .search-bar input {
-      width: 500px;
-      max-width: 100%;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      border: 1.5px solid var(--gold);
-      font-size: 0.9rem;
-      color: var(--black);
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .search-bar input::placeholder {
-      color: #999;
-    }
-
-    .search-bar input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
-    }
-
     .navbar-nav {
       gap: 1.5rem;
     }
@@ -199,27 +173,16 @@
         justify-content: space-between;
         align-items: center;
       }
-
-      .search-bar {
-        margin-top: 0.3rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      .search-bar input {
-        width: 100%;
-      }
     }
 
-
-  /*  ----------------------------------------------------------------------------------*/
+    /*  ----------------------------------------------------------------------------------*/
 
   </style>
 
 </head>
 <body>
 
-<!-- ✅ Navigation -->
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
 
@@ -238,7 +201,7 @@
 
     <!-- Desktop View -->
     <div class="d-none d-lg-flex w-100 align-items-center justify-content-between">
-      <!-- Left: Logo + Navigation + Search -->
+      <!-- Left: Logo + Navigation -->
       <div class="d-flex align-items-center gap-4">
         <a class="navbar-brand" href="#">
           <img src="src/main/resources/assets/logo/Transparent%20W-2.png" alt="Dionz Logo" />
@@ -249,11 +212,6 @@
             <a class="nav-link" href="#">Home</a>
           </li>
         </ul>
-
-        <!-- Search Bar (Now next to Home) -->
-        <div class="search-bar ms-3">
-          <input type="text" placeholder="Search watches..." />
-        </div>
       </div>
 
       <!-- Right: Phone + WhatsApp -->
@@ -267,16 +225,10 @@
       </div>
     </div>
 
-    <!-- Mobile Search Bar -->
-    <div class="search-bar mt-2 mt-lg-0 w-100 w-lg-auto d-lg-none">
-      <input type="text" placeholder="Search watches..." />
-    </div>
-
   </div>
 </nav>
 
-
-<!--Dynamic main section-->
+<!-- Dynamic main section -->
 <main id="dynamicContent"></main>
 
 <script>
@@ -291,7 +243,6 @@
               console.error("Error loading dashboard:", error);
             });
   });
-
 </script>
 
 </body>
