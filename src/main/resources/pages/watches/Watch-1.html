@@ -18,7 +18,6 @@
             text-decoration: none;
         }
 
-        /* Back button */
         .back-button {
             position: fixed;
             top: 20px;
@@ -52,7 +51,6 @@
             100% { transform: translateX(0);}
         }
 
-        /* ID Tag */
         .product-id {
             position: fixed;
             top: 20px;
@@ -328,21 +326,19 @@
             </select>
         </div>
 
-        <button class="buy-btn">Buy Now</button>
         <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+        <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
     </div>
 </div>
 
-<!-- JavaScript section at the bottom -->
+<!-- JavaScript -->
 <script>
     const thumbs = document.querySelectorAll('.thumbs img');
     const mainImage = document.getElementById('mainImage');
     const colorOptions = document.querySelectorAll('.color-option');
     const price = document.getElementById("price");
     const originalPrice = document.getElementById("originalPrice");
-    const qtySelect = document.getElementById("qty");
-    const productId = document.querySelector(".product-id").textContent.trim();
-    const buyNowBtn = document.getElementById("buyNowBtn");
 
     thumbs.forEach((thumb, index) => {
         thumb.addEventListener('click', () => {
@@ -389,22 +385,13 @@
         updateMainImage(currentIndex);
     });
 
-    // ✅ WhatsApp Buy Now Integration
-    buyNowBtn.addEventListener("click", () => {
-        const selectedColorOption = document.querySelector('.color-option.selected .color-label');
-        const selectedColor = selectedColorOption ? selectedColorOption.textContent.trim() : 'Not selected';
-        const quantity = qtySelect.value;
-        const id = productId.replace("ID:", "").trim();
-
-        const message = `Hi, I'm interested in the following product:\n\n🆔 ID: ${id}\n🎨 Color: ${selectedColor}\n🔢 Quantity: ${quantity}`;
-        const phone = "94767149543"; // Your WhatsApp Business number (no +)
-        const encodedMsg = encodeURIComponent(message);
-        const whatsappURL = `https://wa.me/${phone}?text=${encodedMsg}`;
-
+    // Simplified Buy Now button - just open WhatsApp
+    document.getElementById("buyNowBtn").addEventListener("click", () => {
+        const phone = "94767149543"; // Your WhatsApp number
+        const whatsappURL = `https://wa.me/${phone}`;
         window.open(whatsappURL, "_blank");
     });
 </script>
-
 
 </body>
 </html>
