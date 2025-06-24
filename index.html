@@ -310,19 +310,39 @@
   </div>
 </footer>
 
+<!-- 1️⃣ Add this right under the existing <script> that does the fetch -->
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    fetch('src/main/resources/pages/dashboard.html')
-            .then(response => response.text())
-            .then(html => {
-              document.getElementById('dynamicContent').innerHTML = html;
-            })
-            .catch(error => {
-              document.getElementById('dynamicContent').innerHTML = '<p>Failed to load dashboard.</p>';
-              console.error('Error loading dashboard:', error);
-            });
-  });
+  // Fetch the dashboard → inject → then shuffle
+  async function loadDashboard() {
+    try {
+      const res  = await fetch('src/main/resources/pages/dashboard.html');
+      const html = await res.text();
+
+      const container = document.getElementById('dynamicContent');
+      container.innerHTML = html;      // inject markup
+
+      shuffleCards();                  // 👉 run shuffle once cards exist
+    } catch (err) {
+      console.error('Dashboard load failed:', err);
+      dynamicContent.innerHTML = '<p>Failed to load dashboard.</p>';
+    }
+  }
+
+  // Fisher-Yates shuffle for the cards
+  function shuffleCards() {
+    const grid = document.querySelector('#dynamicContent .products-grid');
+    if (!grid) return;                 // guard in case the grid isn't on this page
+
+    const cards = Array.from(grid.children);
+    cards.sort(() => Math.random() - 0.5);   // simple random sort
+    grid.innerHTML = '';                      // clear existing
+    cards.forEach(card => grid.appendChild(card));
+  }
+
+  // Load everything once the *outer* page is ready
+  window.addEventListener('DOMContentLoaded', loadDashboard);
 </script>
+
 
 </body>
 </html>

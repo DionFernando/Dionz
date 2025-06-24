@@ -59,5 +59,20 @@
 
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.products-grid');
+        const cards = Array.from(grid.children);
+        const shuffled = cards.sort(() => Math.random() - 0.5);
+
+        // Clear existing cards
+        grid.innerHTML = '';
+
+        // Append shuffled cards
+        shuffled.forEach(card => grid.appendChild(card));
+    });
+</script>
+
+
 </body>
 </html>
