@@ -40,6 +40,12 @@ h2 {
     flex: 1;
 }
 
+.categories-flex .category-item {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
 .category-item span {
     color: var(--black);
     font-weight: 400;
