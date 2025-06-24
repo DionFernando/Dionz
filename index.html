@@ -312,36 +312,47 @@
 
 <!-- 1️⃣ Add this right under the existing <script> that does the fetch -->
 <script>
-  // Fetch the dashboard → inject → then shuffle
+  /* ---------------- Helper Functions ---------------- */
   async function loadDashboard() {
-    try {
-      const res  = await fetch('src/main/resources/pages/dashboard.html');
-      const html = await res.text();
+    const container = document.getElementById('dynamicContent');
 
-      const container = document.getElementById('dynamicContent');
-      container.innerHTML = html;      // inject markup
+    // always bust fetch-cache so we truly get a fresh copy
+    const resp  = await fetch('src/main/resources/pages/dashboard.html', { cache: 'no-store' });
+    const html  = await resp.text();
+    container.innerHTML = html;
 
-      shuffleCards();                  // 👉 run shuffle once cards exist
-    } catch (err) {
-      console.error('Dashboard load failed:', err);
-      dynamicContent.innerHTML = '<p>Failed to load dashboard.</p>';
-    }
+    shuffleCards();
   }
 
-  // Fisher-Yates shuffle for the cards
   function shuffleCards() {
     const grid = document.querySelector('#dynamicContent .products-grid');
-    if (!grid) return;                 // guard in case the grid isn't on this page
+    if (!grid) return;
 
-    const cards = Array.from(grid.children);
-    cards.sort(() => Math.random() - 0.5);   // simple random sort
-    grid.innerHTML = '';                      // clear existing
-    cards.forEach(card => grid.appendChild(card));
+    // Fisher-Yates – safer than Math.random()-0.5 for large lists
+    const arr = Array.from(grid.children);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    grid.innerHTML = '';
+    arr.forEach(c => grid.appendChild(c));
   }
 
-  // Load everything once the *outer* page is ready
-  window.addEventListener('DOMContentLoaded', loadDashboard);
+  /* ---------------- Bootstrapping ---------------- */
+  function initOnce() {
+    // avoid double-running when both DOMContentLoaded and pageshow fire
+    if (initOnce.hasRun) return;
+    initOnce.hasRun = true;
+    loadDashboard();
+  }
+
+  window.addEventListener('DOMContentLoaded', initOnce);
+
+  /* When the page returns from bfcache (`event.persisted === true`)
+     OR just any navigation that shows the page again, we reload + reshuffle */
+  window.addEventListener('pageshow', initOnce);
 </script>
+
 
 
 </body>
