@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mens | Dionx</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../../resources/css/dashboard.css" />
+  <link rel="stylesheet" href="../css/watch.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  </style>
+
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+  <img src="../assets/imgs/back.png" alt="Back" />
+</a>
+
+<!-- Title -->
+<h2>Bundles</h2>
+
+<!-- Products Grid -->
+<div class="products-grid">
+  <!--BUNDLE 1-->
+  <a href="../../resources/pages/watches/Bundle-1.html?id=3" class="card-link">
+    <div class="card">
+      <img src="../../resources/assets/bundle/1/bundle 1 - 1.webp" alt="Women's Classic Watch">
+      <h4>5pcs Men's Fashion Quartz Watch & Bracelet Set</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">1,397.00</span>
+        <span class="original">2,390.69</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.querySelector('.products-grid');
+    const cards = Array.from(grid.children);
+    const shuffled = cards.sort(() => Math.random() - 0.5);
+
+    // Clear existing cards
+    grid.innerHTML = '';
+
+    // Append shuffled cards
+    shuffled.forEach(card => grid.appendChild(card));
+  });
+</script>
+
+
+</body>
+</html>
