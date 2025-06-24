@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../../assets/logo/W.png" type="image/x-icon">
+
+  <title>Watch Details | Dionz</title>
+
+  <link rel="stylesheet" href="../../css/watch.css" />
+
+</head>
+<body>
+
+<!-- Back and ID -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+  <img src="../../assets/imgs/back.png" alt="Back" />
+</a>
+<div class="product-id">ID: WW1411</div>
+
+<div class="container">
+
+  <!-- Thumbnails -->
+  <div class="thumbs" id="thumbs">
+    <img src="../../assets/watches/3/watch 3 - 1.webp" alt="Watch 1" class="active" />
+    <img src="../../assets/watches/3/watch 3 - 4.webp" alt="Watch 4" />
+    <img src="../../assets/watches/3/watch 3 - 2.webp" alt="Watch 2" />
+    <img src="../../assets/watches/3/watch 3 - 6.webp" alt="Watch 6" />
+    <img src="../../assets/watches/3/watch 3 - 8.webp" alt="Watch 8" />
+    <img src="../../assets/watches/3/watch 3 - 3.webp" alt="Watch 3" />
+    <img src="../../assets/watches/3/watch 3 - 7.webp" alt="Watch 7" />
+    <img src="../../assets/watches/3/watch 3 - 5.webp" alt="Watch 5" />
+
+  </div>
+
+  <!-- Main Image with Arrows -->
+  <div>
+    <div style="position: relative;">
+      <img id="mainImage" src="../../assets/watches/3/watch 3 - 1.webp" alt="Main Watch" class="main-image" />
+      <button id="prevBtn" class="arrow-btn left">‹</button>
+      <button id="nextBtn" class="arrow-btn right">›</button>
+
+    </div>
+  </div>
+
+  <!-- Product Details -->
+  <div class="details">
+    <h1 class="title">Elegant Ladies Quartz Watch</h1>
+
+    <div class="price-section">
+      <div id="price">LKR 1,499.00</div>
+      <div class="original-price" id="originalPrice">LKR 2,100.55</div>
+    </div>
+
+    <p class="description">
+      Elegant Ladies Quartz Watch - Fashionable Round Alloy Case, Non-rechargeable Battery, Women's Watch, Quartz Watch,able Multifunctional
+    </p>
+
+    <div class="brand-label">Brand: Quartz</div>
+
+    <!-- Color Options with Price -->
+    <div class="colors" id="colors">
+      <div class="color-option selected" data-price="1,499" data-original="2100.55">
+        <img src="../../assets/watches/3/watch 3 - 1.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Blue</div>
+      </div>
+      <div class="color-option" data-price="1,499" data-original="2147.55">
+        <img src="../../assets/watches/3/watch 3 - 2.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Pink</div>
+      </div>
+      <div class="color-option" data-price="1,499" data-original="2099.55">
+        <img src="../../assets/watches/3/watch 3 - 5.webp" alt="Blue Steel Blue Surface" />
+        <div class="color-label">Black</div>
+      </div>
+      <div class="color-option" data-price="1,499" data-original="2100.55">
+        <img src="../../assets/watches/3/watch 3 - 3.webp" alt="Golden Strap Black Dial" />
+        <div class="color-label">White</div>
+      </div>
+    </div>
+
+    <div class="quantity">
+      <label for="qty">Qty:</label>
+      <select id="qty" name="qty">
+        <script>
+          for (let i = 1; i <= 50; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select>
+    </div>
+
+    <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+    <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script src="../../js/js.js"></script>
+
+</body>
+</html>
