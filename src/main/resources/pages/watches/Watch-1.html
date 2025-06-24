@@ -191,7 +191,7 @@
         }
 
         .buy-btn {
-            margin-top: 30px;
+            margin-top: 5px;
             background-color: #edcd84;
             border: none;
             border-radius: 6px;
@@ -208,8 +208,8 @@
         }
 
         .notice {
-            margin-top: 15px;
-            font-size: 14px;
+            margin-top: 10px;
+            font-size: 12px;
             color: #555;
             font-style: italic;
         }
@@ -388,9 +388,20 @@
     // Simplified Buy Now button - just open WhatsApp
     document.getElementById("buyNowBtn").addEventListener("click", () => {
         const phone = "94767149543"; // Your WhatsApp number
-        const whatsappURL = `https://wa.me/${phone}`;
+
+        const productId = document.querySelector('.product-id').textContent.trim().replace('ID: ', '');
+        const selectedColor = document.querySelector('.color-option.selected .color-label')?.textContent.trim() || "N/A";
+        const qty = document.getElementById("qty").value;
+
+        const message = `Hello, I'm interested in purchasing the following item:%0A` +
+            `Product ID: ${productId}%0A` +
+            `Color: ${selectedColor}%0A` +
+            `Quantity: ${qty}`;
+
+        const whatsappURL = `https://wa.me/${phone}?text=${message}`;
         window.open(whatsappURL, "_blank");
     });
+
 </script>
 
 </body>
