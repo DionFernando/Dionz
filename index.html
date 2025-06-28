@@ -269,13 +269,15 @@
     /* Responsive */
     @media (max-width: 575.98px) {
       .popup-card-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        bottom: auto;
-        right: auto;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;            /* make the container fill the viewport */
+        margin: auto;       /* “auto” margin + equal insets = centred */
+        display: flex;      /* flexbox = easy centring */
+        align-items: center;/* vertical centring */
+        justify-content: center; /* horizontal centring */
+        transform: none;
       }
 
       .popup-card {
