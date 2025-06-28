@@ -8,34 +8,66 @@
   <link rel="stylesheet" href="src/main/resources/css/dashboard.css" />
 
   <style>
+    :root {
+      --gold: #edcd84;
+      --gold-light: #f8e7b3;
+      --black: #000;
+      --white: #fff;
+    }
+
+    /* ✨ FEATURED WATCH STYLE ✨ */
     .featured-watch {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1rem;
       margin: 1.5rem;
       padding: 1rem;
-      background-color: var(--black);
-      border: 3px solid var(--gold);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.8),rgba(237, 205, 132, 1));
+      border: 2px solid var(--gold);
       border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
+      box-shadow: 0 4px 16px rgba(237, 205, 132, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
+    }
+
+    .featured-watch::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+      opacity: 0.2;
+      z-index: 0;
     }
 
     .featured-link:hover .featured-watch {
       transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(237, 205, 132, 0.3);
+    }
+
+    .featured-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .featured-image {
       flex: 0 0 220px;
       max-width: 220px;
+      position: relative;
+      z-index: 2;
     }
 
     .featured-image img {
       width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-light);
     }
 
     .featured-details {
@@ -45,27 +77,28 @@
       justify-content: flex-start;
       align-items: flex-start;
       text-align: left;
+      z-index: 2;
     }
 
     .featured-details h4 {
       font-size: 1.3rem;
-      color: white;
+      color: var(--white);
       margin: 0 0 0.4rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .featured-desc {
-      font-size: 0.7rem;
-      color: darkgray;
+      font-size: 0.8rem;
+      color: #ccc;
       margin-bottom: 0.6rem;
-      line-height: 1.4;
+      line-height: 1.5;
       max-width: 100%;
     }
 
     .featured-details .price {
       display: flex;
       align-items: baseline;
-      gap: 4px;
+      gap: 6px;
       flex-wrap: nowrap;
       white-space: nowrap;
     }
@@ -76,7 +109,7 @@
     }
 
     .featured-details .current {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: var(--gold);
     }
@@ -84,31 +117,29 @@
     .featured-details .original {
       font-size: 1rem;
       text-decoration: line-through;
-      color: darkgray;
+      color: #888;
     }
 
-    .featured-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
+    /* Divider Style */
     .section-divider {
       border: none;
-      border-top: 1px solid black;
+      border-top: 1px solid var(--gold-light);
       margin: 1.5em 1.5rem;
+      opacity: 0.5;
     }
 
-    /* 🔁 RESPONSIVE TWEAKS FOR MOBILE */
+    /* 📱 RESPONSIVE FOR MOBILE */
     @media (max-width: 575.98px) {
       .featured-watch {
-        gap: 0.5rem;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.8rem;
         padding: 0.8rem;
       }
 
       .featured-image {
-        flex: 0 0 32vw;
-        max-width: 32vw;
+        flex: 0 0 34vw;
+        max-width: 34vw;
       }
 
       .featured-details h4 {
@@ -116,25 +147,26 @@
       }
 
       .featured-desc {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
       }
 
       .featured-details .price {
-        gap: 1px;
+        gap: 3px;
       }
 
       .featured-details .currency {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
       }
 
       .featured-details .current {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
 
       .featured-details .original {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
       }
     }
+
   </style>
 
 
