@@ -10,7 +10,8 @@
   <style>
     .featured-watch {
       display: flex;
-      align-items: flex-start; /* aligns content to the top */
+      flex-direction: row;
+      align-items: flex-start;
       gap: 1rem;
       margin: 1.5rem;
       padding: 1rem;
@@ -20,15 +21,26 @@
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.2s;
       cursor: pointer;
+      flex-wrap: wrap;
     }
 
-    .featured-link:hover .featured-watch {
-      transform: translateY(-4px);
+    @media (max-width: 768px) {
+      .featured-watch {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .featured-details {
+        align-items: center;
+        text-align: center;
+      }
     }
 
     .featured-image img {
-      width: 220px;
-      height: 220px;
+      width: 100%;
+      max-width: 220px;
+      height: auto;
       object-fit: cover;
       border-radius: 8px;
     }
@@ -79,13 +91,7 @@
     .featured-details .original {
       font-size: 1rem;
       text-decoration: line-through;
-      color: darkgray
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid black;
-      margin: 1.5em 1.5rem;
+      color: darkgray;
     }
 
     .featured-link {
@@ -93,6 +99,7 @@
       color: inherit;
       display: block;
     }
+
 
 
 
