@@ -32,3 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(card);
     });
 });
+
+
+
+
+
+

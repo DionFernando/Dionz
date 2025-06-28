@@ -326,7 +326,18 @@
     const html  = await resp.text();
     container.innerHTML = html;
 
+    pickRandomFeatured();
     shuffleCards();
+  }
+
+  // NEW: keep one random .featured-watch-item, hide the others
+  function pickRandomFeatured() {
+    const items = document.querySelectorAll('#dynamicContent .featured-watch-item');
+    if (items.length < 2) return;           // nothing to do
+    const keep = Math.floor(Math.random() * items.length);
+    items.forEach((item, idx) => {
+      if (idx !== keep) item.remove();      // or item.style.display = 'none';
+    });
   }
 
   function shuffleCards() {
@@ -357,6 +368,7 @@
      OR just any navigation that shows the page again, we reload + reshuffle */
   window.addEventListener('pageshow', initOnce);
 </script>
+
 
 
 

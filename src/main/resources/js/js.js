@@ -65,3 +65,6 @@ document.getElementById("buyNowBtn").addEventListener("click", () => {
     const whatsappURL = `https://wa.me/${phone}?text=${message}`;
     window.open(whatsappURL, "_blank");
 });
+
+
+

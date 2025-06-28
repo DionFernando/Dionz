@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../assets/logo/W.png" type="image/x-icon">
+
+    <title>Watch Details | Dionz</title>
+
+    <link rel="stylesheet" href="../../css/watch.css" />
+
+</head>
+<body>
+
+<!-- Back and ID -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../../assets/imgs/back.png" alt="Back" />
+</a>
+<div class="product-id">ID: WB6555</div>
+
+<div class="container">
+
+    <!-- Thumbnails -->
+    <div class="thumbs" id="thumbs">
+        <img src="../../assets/bundle/1/bundle%201%20-%201.webp" alt="Bundle 1" class="active" />
+        <img src="../../assets/bundle/1/bundle%201%20-%206.webp" alt="Bundle 6" />
+        <img src="../../assets/bundle/1/bundle%201%20-%202.webp" alt="Bundle 2" />
+        <img src="../../assets/bundle/1/bundle%201%20-%203.webp" alt="Bundle 3" />
+        <img src="../../assets/bundle/1/bundle%201%20-%204.webp" alt="Bundle 4" />
+        <img src="../../assets/bundle/1/bundle%201%20-%205.webp" alt="Bundle 5" />
+    </div>
+
+    <!-- Main Image with Arrows -->
+    <div>
+        <div style="position: relative;">
+            <img id="mainImage" src="../../assets/bundle/1/bundle%201%20-%201.webp" alt="Main Watch" class="main-image" />
+            <button id="prevBtn" class="arrow-btn left">‹</button>
+            <button id="nextBtn" class="arrow-btn right">›</button>
+
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="details">
+        <h1 class="title">5pcs Men's Fashion Quartz Watch & Bracelet Set</h1>
+
+        <div class="price-section">
+            <div id="price">LKR 1397.00</div>
+            <div class="original-price" id="originalPrice">LKR 2,390.69</div>
+        </div>
+
+        <p class="description">
+            6-Piece Women’s Watch & Bracelet Set – Casual Rose Quartz Watch with Elegant Leather Strap – Perfect Gift for Mom or Her
+        </p>
+
+        <div class="quantity">
+            <label for="qty">Qty:</label>
+            <select id="qty" name="qty">
+                <script>
+                    for (let i = 1; i <= 50; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+        <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="../../js/js.js"></script>
+
+</body>
+</html>
