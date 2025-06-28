@@ -211,3 +211,140 @@ h2 {
         font-size: 0.65rem;
     }
 }
+
+
+/*featured*/
+.featured-watch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem;
+    padding: 1rem;
+    background-color: var(--black);
+    border: 3px solid var(--gold);
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.featured-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--gold-light);
+}
+
+.featured-link:hover .featured-watch {
+    transform: translateY(-4px);
+}
+
+.featured-image {
+    flex: 0 0 220px;
+    max-width: 220px;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.featured-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.featured-details h4 {
+    font-size: 1.3rem;
+    color: white;
+    margin: 0 0 0.4rem;
+    font-weight: 500;
+}
+
+.featured-desc {
+    font-size: 0.7rem;
+    color: darkgray;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+    max-width: 100%;
+}
+
+.featured-details .price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.featured-details .currency {
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.featured-details .current {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.featured-details .original {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: darkgray;
+}
+
+.featured-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid black;
+    margin: 1.5em 1.5rem;
+}
+
+/* 🔁 RESPONSIVE TWEAKS FOR MOBILE */
+@media (max-width: 575.98px) {
+    .featured-watch {
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+
+    .featured-image {
+        flex: 0 0 32vw;
+        max-width: 32vw;
+    }
+
+    .featured-details h4 {
+        font-size: 0.7rem;
+    }
+
+    .featured-desc {
+        font-size: 0.5rem;
+    }
+
+    .featured-details .price {
+        gap: 1px;
+    }
+
+    .featured-details .currency {
+        font-size: 0.7rem;
+    }
+
+    .featured-details .current {
+        font-size: 1.1rem;
+    }
+
+    .featured-details .original {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../../assets/logo/W.png" type="image/x-icon">
+
+  <title>Watch Details | Dionz</title>
+
+  <link rel="stylesheet" href="../../css/watch.css" />
+
+</head>
+<body>
+
+<!-- Back and ID -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+  <img src="../../assets/imgs/back.png" alt="Back" />
+</a>
+<div class="product-id">ID: WC2500</div>
+
+<div class="container">
+
+  <!-- Thumbnails -->
+  <div class="thumbs" id="thumbs">
+    <img src="../../assets/couples/1/couple 1 - 5.webp" alt="Watch 1" class="active" />
+    <img src="../../assets/couples/1/couple 1 - 1.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 3.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 2.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 6.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 4.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 7.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 8.webp" alt="Watch 5" />
+    <img src="../../assets/couples/1/couple 1 - 9.webp" alt="Watch 5" />
+  </div>
+
+  <!-- Main Image with Arrows -->
+  <div>
+    <div style="position: relative;">
+      <img id="mainImage" src="../../assets/couples/1/couple 1 - 5.webp" alt="Main Watch" class="main-image" />
+      <button id="prevBtn" class="arrow-btn left">‹</button>
+      <button id="nextBtn" class="arrow-btn right">›</button>
+
+    </div>
+  </div>
+
+  <!-- Product Details -->
+  <div class="details">
+    <h1 class="title">Two Round Rhinestone Roman Dial</h1>
+
+    <div class="price-section">
+      <div id="price">LKR 5,299.00</div>
+      <div class="original-price" id="originalPrice">LKR 6,890.00</div>
+    </div>
+
+    <p class="description">
+      Two Round Rhinestone Roman Dial Night Display Couple Watch IPX7 Quartz Watch Calendar Date Fashion Alloy Strap Business Watch Suitable for Women Men Date Valentine'S Day Wrist Watch
+    </p>
+
+    <div class="brand-label">Brand: Teranv</div>
+
+    <!-- Color Options with Price -->
+    <div class="colors" id="colors">
+      <div class="color-option selected" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 16.webp" alt="White Steel Black Surface" />
+        <div class="color-label">🔥Silver-Blue</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 10.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Gold</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 11.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Silver</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 12.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Golden-Silver</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 13.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Silver-Gold</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 14.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Silver-Black</div>
+      </div>
+      <div class="color-option" data-price="5,299" data-original="6890.00">
+        <img src="../../assets/couples/1/couple 1 - 15.webp" alt="White Steel Black Surface" />
+        <div class="color-label">Silver-Black</div>
+      </div>
+
+    </div>
+
+    <div class="quantity">
+      <label for="qty">Qty:</label>
+      <select id="qty" name="qty">
+        <script>
+          for (let i = 1; i <= 50; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select>
+    </div>
+
+    <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+    <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script src="../../js/js.js"></script>
+
+</body>
+</html>
