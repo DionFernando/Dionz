@@ -7,7 +7,138 @@
 
   <link rel="stylesheet" href="src/main/resources/css/dashboard.css" />
 
+  <style>
+    /* ─── Special Offer (desktop first) ─────────────────────────────── */
+    .offer-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
 
+    .offer-watch {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.5rem;
+      padding: 1rem;
+      background: linear-gradient(135deg,  #6f4e37, #c2a563, #a8882d, #a86b2d, #a83b2d,#a82d2d);
+      background-size: 300% 300%;
+      border: 3px solid var(--gold-light);
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      cursor: pointer;
+      animation: gradientShift 6s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position:   0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position:   0% 50%; }
+    }
+
+    .offer-link:hover .offer-watch {
+      transform: translateY(-4px);
+    }
+
+    /* image */
+    .offer-image {
+      flex: 0 0 220px;
+      max-width: 220px;
+    }
+
+    .offer-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--gold-light);
+    }
+
+    /* text area */
+    .offer-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .offer-details h4 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin: 0 0 0.4rem;
+      font-weight: 500;
+    }
+
+    .offer-desc {
+      font-size: 0.7rem;
+      color: white;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    /* price */
+    .offer-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .offer-price .currency {
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    .offer-price .current {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--gold);
+    }
+
+    .offer-price .original {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: white;
+    }
+
+    /* ─── Responsive tweaks ─────────────────────────────────────────── */
+    @media (max-width: 575.98px) {
+      .offer-watch {
+        gap: 0.5rem;
+        padding: 0.8rem;
+      }
+
+      .offer-image {             /* smaller image on phones */
+        flex: 0 0 32vw;
+        max-width: 32vw;
+      }
+
+      .offer-details h4 {
+        font-size: 0.7rem;
+      }
+
+      .offer-desc {
+        font-size: 0.5rem;
+      }
+
+      .offer-price .currency {
+        font-size: 0.7rem;
+      }
+
+      .offer-price .current {
+        font-size: 1.1rem;
+      }
+
+      .offer-price .original {
+        font-size: 0.7rem;
+      }
+    }
+
+
+  </style>
 </head>
 <body>
 
@@ -191,6 +322,37 @@
   </a>
 
 </div>
+
+<hr class="section-divider">
+
+<h2 style="color: #917c4c">Special Offer</h2>
+
+<div class="special-offer-wrapper">
+
+  <div class="special-offer">
+    <!-- Special‑offer items -->
+    <a href="src/main/resources/pages/watches/Watch-1.html?id=1" class="offer-link offer-item">
+      <div class="offer-watch">
+        <div class="offer-image">
+          <img src="src/main/resources/assets/watches/1/watch 1 - 1.webp" alt="Special Watch 1">
+        </div>
+        <div class="offer-details">
+          <h4>Binbond's Casual Blue Skeleton Quartz Watch with Date Indicator</h4>
+          <p class="offer-desc">
+            High‑quality build with a lightweight metal band – perfect for school, sports, holidays, or everyday wear.
+          </p>
+          <div class="offer-price">
+            <span class="currency">LKR</span>
+            <span class="current">3,400.00</span>
+            <span class="original">4,369.28</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+
 
 </body>
 </html>
