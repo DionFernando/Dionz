@@ -51,7 +51,7 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 
 // Simplified Buy Now button - just open WhatsApp
 document.getElementById("buyNowBtn").addEventListener("click", () => {
-    const phone = "94767149543"; // Your WhatsApp number
+    const phone = "94785557797"; // Your WhatsApp number
 
     const productId = document.querySelector('.product-id').textContent.trim().replace('ID: ', '');
     const selectedColor = document.querySelector('.color-option.selected .color-label')?.textContent.trim() || "N/A";
