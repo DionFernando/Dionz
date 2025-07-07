@@ -21,9 +21,10 @@ h2 {
 
 /* Categories Section */
 .categories-section {
-    padding: 1rem 1.5rem;
     background-color: #edcd84;
-
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
 }
 
 .categories-wrapper {
