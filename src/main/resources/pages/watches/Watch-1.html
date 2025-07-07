@@ -10,9 +10,30 @@
     <link rel="stylesheet" href="../../css/watch.css" />
 
     <style>
+        .promo-video {
+            width: 30%;
+            margin: 40px 0 40px 15%; /* Align to the left on wider screens */
+            border: 2px solid #c2a563;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
 
+        .promo-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
+        /* Mobile view: Center the video */
+        @media (max-width: 768px) {
+            .promo-video {
+                width: 80%;
+                margin: 40px auto;
+            }
+        }
     </style>
+
 
 </head>
 <body>
