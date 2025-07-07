@@ -265,3 +265,21 @@ a {
         font-size: 20px;
     }
 }
+
+
+/*-----------*/
+
+.promo-video {
+    width: 30%;
+    margin: 40px auto;
+    border: 2px solid #c2a563;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.promo-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
