@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mens | Dionz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../../resources/css/dashboard.css" />
+  <link rel="stylesheet" href="../css/watch.css" />
+  <link rel="stylesheet" href="../css/browse_more.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  </style>
+
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+  <img src="../assets/imgs/back.png" alt="Back" />
+</a>
+
+<!-- Title -->
+<h2>Watch Cases</h2>
+
+<!-- Products Grid -->
+<div class="products-grid">
+  <a href="../../resources/pages/cases/Case-1.html?id=1" class="card-link">
+    <div class="card">
+      <img src="../../resources/assets/cases/1/case 1 - 1.webp" alt="Watch">
+      <h4>Classic Premium Watch Storage Box with Watch Pillows</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">500.00</span>
+        <span class="original">750.00</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- Browse More Button -->
+<div style="text-align: center; margin: 30px 0;">
+  <a href="../../../../index.html" class="browse-more-btn">
+    Browse More
+  </a>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.querySelector('.products-grid');
+    const cards = Array.from(grid.children);
+    const shuffled = cards.sort(() => Math.random() - 0.5);
+
+    // Clear existing cards
+    grid.innerHTML = '';
+
+    // Append shuffled cards
+    shuffled.forEach(card => grid.appendChild(card));
+  });
+</script>
+
+
+</body>
+</html>
