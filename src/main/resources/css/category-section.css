@@ -1,0 +1,65 @@
+.category-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    padding: 1rem 1.5rem;
+}
+
+.category-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+/* Remove any background from the base rule */
+.category-card {
+    border-radius: 12px;
+    padding: 0.6rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    text-align: center;
+    transition: transform .2s, filter .3s;
+    cursor: pointer;
+}
+
+/* 🎨 Distinct gradients based on the <a> order */
+.category-grid > a:nth-child(1) .category-card {         /* Men */
+    background: linear-gradient(135deg, #4b586b, #0d131f);
+}
+.category-grid > a:nth-child(2) .category-card {         /* Women */
+    background: linear-gradient(135deg, #967d96, #571651);
+}
+.category-grid > a:nth-child(3) .category-card {         /* Bundles */
+    background: linear-gradient(135deg, #ffb284, #572e17);
+}
+.category-grid > a:nth-child(4) .category-card {         /* Couple */
+    background: linear-gradient(135deg, #a36f79, #571623);
+}
+.category-grid > a:nth-child(5) .category-card {         /* Accessories */
+    background: linear-gradient(135deg, #f5d97e, #ab9d32);
+}
+.category-grid > a:nth-child(6) .category-card {         /* Boxes */
+    background: linear-gradient(135deg, #7a7469, #2e2312);
+}
+.category-grid > a:nth-child(7) .category-card {         /* Luxury */
+    background: linear-gradient(135deg, #548070, #05241d);
+}
+
+/* Shared hover effect */
+.category-card:hover {
+    transform: translateY(-4px);
+    filter: brightness(0.9);
+}
+
+/* Image & title stay the same */
+.category-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border:1px solid #fff;
+}
+.category-card h4 {
+    font: 600 0.85rem/1 'Segoe UI', sans-serif;
+    margin: 0;
+    color: white;
+}
