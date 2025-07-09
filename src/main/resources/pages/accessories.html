@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessories | Dionz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../resources/css/dashboard.css" />
+    <link rel="stylesheet" href="../css/watch.css" />
+    <link rel="stylesheet" href="../css/browse_more.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../assets/imgs/back.png" alt="Back" />
+</a>
+
+<!-- Title -->
+<h2>Couple Watches</h2>
+
+<!-- Products Grid -->
+<div class="products-grid">
+
+    <!--ACCESSORY 1-->
+    <a href="../../resources/pages/accessories/Accessory-1.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../../resources/assets/accessories/1/accessory 1 - 1.webp" alt="Watch">
+            <h4>Cartoon Panda Resin Statue with Key Holder</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">11,000.00</span>
+                <span class="original">15,300.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--ACCESSORY 2-->
+    <a href="../../resources/pages/accessories/Accessory-2.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../../resources/assets/accessories/2/accessory 2 - 1.webp" alt="Watch">
+            <h4>French Bulldog Resin Cabinet Key Holder Organizer</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">12,000.00</span>
+                <span class="original">17,630.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--ACCESSORY 3-->
+    <a href="../../resources/pages/accessories/Accessory-3.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../../resources/assets/accessories/3/accessory 3 - 2.webp" alt="Watch">
+            <h4>KEMORELA Rabbit Key Storage Ornament</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">6,500.00</span>
+                <span class="original">12,700.00</span>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+<!-- Browse More Button -->
+<div style="text-align: center; margin: 30px 0;">
+    <a href="../../../../index.html" class="browse-more-btn">
+        Browse More
+    </a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.products-grid');
+        const cards = Array.from(grid.children);
+        const shuffled = cards.sort(() => Math.random() - 0.5);
+
+        // Clear existing cards
+        grid.innerHTML = '';
+
+        // Append shuffled cards
+        shuffled.forEach(card => grid.appendChild(card));
+    });
+</script>
+
+
+</body>
+</html>

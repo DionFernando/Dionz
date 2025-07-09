@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../assets/logo/W.png" type="image/x-icon">
+
+    <title>Accessory Details | Dionz</title>
+
+    <link rel="stylesheet" href="../../css/watch.css" />
+
+</head>
+<body>
+
+<!-- Back and ID -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../../assets/imgs/back.png" alt="Back" />
+</a>
+<div class="product-id">ID: WA3001</div>
+
+<div class="container">
+
+    <!-- Thumbnails -->
+    <div class="thumbs" id="thumbs">
+        <img src="../../assets/accessories/3/accessory 3 - 7.webp" alt="Accessory 3" class="active" />
+        <img src="../../assets/accessories/3/accessory 3 - 8.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 3.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 4.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 5.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 6.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 1.webp" alt="Accessory 3" />
+        <img src="../../assets/accessories/3/accessory 3 - 9.webp" alt="Accessory 3" />
+    </div>
+
+    <!-- Main Image with Arrows -->
+    <div>
+        <div style="position: relative;">
+            <img id="mainImage" src="../../assets/accessories/3/accessory 3 - 7.webp" alt="Main Watch" class="main-image" />
+            <button id="prevBtn" class="arrow-btn left">‹</button>
+            <button id="nextBtn" class="arrow-btn right">›</button>
+
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="details">
+        <h1 class="title">KEMORELA Rabbit Key Storage Ornament</h1>
+
+        <div class="price-section">
+            <div id="price">LKR 6,500.00</div>
+            <div class="original-price" id="originalPrice">LKR 12,700.00</div>
+        </div>
+
+        <p class="description">
+            KEMORELA Rabbit Key Storage Ornament, Ceramic Material, Figurine Ornament, Home and Living Room Decoration, Small Item Storage,Suitable for Living Room and Wine Cabinet Decoration
+        </p>
+
+        <!-- Color Options with Price -->
+        <div class="colors" id="colors">
+            <div class="color-option selected" data-price="6,500" data-original="12700.00">
+                <img src="../../assets/accessories/3/accessory 3 - 10.webp" alt="White Steel Black Surface" />
+                <div class="color-label">Silvery</div>
+            </div>
+            <div class="color-option" data-price="6,500" data-original="12700.00">
+                <img src="../../assets/accessories/3/accessory 3 - 8.webp" alt="White Steel Black Surface" />
+                <div class="color-label">Golden</div>
+            </div>
+            <div class="color-option" data-price="6,500" data-original="12700.00">
+                <img src="../../assets/accessories/3/accessory 3 - 9.webp" alt="White Steel Black Surface" />
+                <div class="color-label">Multi-Colored</div>
+            </div>
+        </div>
+
+        <div class="quantity">
+            <label for="qty">Qty:</label>
+            <select id="qty" name="qty">
+                <script>
+                    for (let i = 1; i <= 50; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+        <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="../../js/js.js"></script>
+
+</body>
+</html>
