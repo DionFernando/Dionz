@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../../../assets/logo/W.png" type="image/x-icon">
+
+    <title>Watch Details | Dionz</title>
+
+    <link rel="stylesheet" href="../../../../css/watch.css" />
+
+
+</head>
+<body>
+
+<!-- Back and ID -->
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../../../../assets/imgs/back.png" alt="Back" />
+</a>
+<div class="product-id">ID: WM1405</div>
+
+<div class="container">
+
+    <!-- Thumbnails -->
+    <div class="thumbs" id="thumbs">
+        <img src="../../../assets/watches/1/watch%201%20-%201.webp" alt="Watch 1" class="active" />
+        <img src="../../../assets/watches/1/watch%201%20-%208.webp" alt="Watch 2" />
+        <img src="../../../assets/watches/1/watch%201%20-%209.webp" alt="Watch 3" />
+        <img src="../../../assets/watches/1/watch%201%20-%2010.webp" alt="Watch 4" />
+        <img src="../../../assets/watches/1/watch%201%20-%2011.webp" alt="Watch 5" />
+    </div>
+
+    <!-- Main Image with Arrows -->
+    <div>
+        <div style="position: relative;">
+            <img id="mainImage" src="../../../assets/watches/1/watch%201%20-%201.webp" alt="Main Watch" class="main-image" />
+            <button id="prevBtn" class="arrow-btn left">‹</button>
+            <button id="nextBtn" class="arrow-btn right">›</button>
+
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="details">
+        <h1 class="title">BAISHENG</h1>
+
+        <div class="price-section">
+            <div id="price">LKR 3,000.00</div>
+            <div class="original-price" id="originalPrice">LKR 3,750.00</div>
+        </div>
+
+        <p class="description">
+            BAISHENG
+        </p>
+
+        <div class="brand-label">Brand: BAISHENG</div>
+
+        <!-- Color Options with Price -->
+        <div class="colors" id="colors">
+            <div class="color-option selected" data-price="3,000" data-original="3750.00">
+                <img src="../../../assets/watches/1/watch%201%20-%203.webp" alt="Watch" />
+                <div class="color-label">Silver-Green</div>
+            </div>
+            <div class="color-option" data-price="3,000" data-original="3750.00">
+                <img src="../../../assets/watches/1/watch%201%20-%203.webp" alt="Watch" />
+                <div class="color-label">Silver-Brown</div>
+            </div>
+            <div class="color-option" data-price="3,000" data-original="3750.00">
+                <img src="../../../assets/watches/1/watch%201%20-%203.webp" alt="Watch" />
+                <div class="color-label">Silver-White</div>
+            </div>
+        </div>
+
+        <div class="quantity">
+            <label for="qty">Qty:</label>
+            <select id="qty" name="qty">
+                <script>
+                    for (let i = 1; i <= 50; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <div class="notice">Note: After clicking "Buy Now", you will be redirected to WhatsApp. Payments are completed via bank transfer.</div>
+        <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+
+    </div>
+</div>
+
+<!-- Promo Video Section -->
+<div class="promo-video">
+    <video autoplay muted loop playsinline>
+        <source src="../../../assets/watches/1/watch%201%20-%207.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- JavaScript -->
+<script src="../../../../js/js.js"></script>
+
+</body>
+</html>
