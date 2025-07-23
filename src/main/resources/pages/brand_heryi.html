@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HERYI | Dionz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../resources/css/dashboard.css" />
+    <link rel="stylesheet" href="../css/watch.css" />
+    <link rel="stylesheet" href="../css/browse_more.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../assets/imgs/back.png" alt="Back" />
+</a>
+
+<!-- Title -->
+<h2>HERYI</h2>
+
+<!-- Products Grid -->
+<div class="products-grid">
+    <!--WOMEN 1-->
+    <a href="leadz/watches/women/Women-1.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/women/1/W1-15.jpg" alt="Womens  Watch">
+            <h4>HERYI Ladies Watch (Free Box)</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">3,500.00</span>
+                <span class="original">4,600.00</span>
+            </div>
+        </div>
+    </a>
+
+
+    <!--WOMEN 3-->
+    <a href="leadz/watches/women/Women-3.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/women/3/W3-2.jpg" alt="Womens Watch">
+            <h4>HERYI Ladies Watch</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">2,500.00</span>
+                <span class="original">4,300.00</span>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+<!-- Browse More Button -->
+<div style="text-align: center; margin: 30px 0;">
+    <a href="../../../../index.html" class="browse-more-btn">
+        Browse More
+    </a>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.products-grid');
+        const cards = Array.from(grid.children);
+        const shuffled = cards.sort(() => Math.random() - 0.5);
+
+        // Clear existing cards
+        grid.innerHTML = '';
+
+        // Append shuffled cards
+        shuffled.forEach(card => grid.appendChild(card));
+    });
+</script>
+
+
+</body>
+</html>

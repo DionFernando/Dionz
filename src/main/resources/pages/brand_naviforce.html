@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NAVIFORCE | Dionz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../resources/css/dashboard.css" />
+    <link rel="stylesheet" href="../css/watch.css" />
+    <link rel="stylesheet" href="../css/browse_more.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button" aria-label="Go back">
+    <img src="../assets/imgs/back.png" alt="Back" />
+</a>
+
+<!-- Title -->
+<h2>NAVIFORCE</h2>
+
+<!-- Products Grid -->
+<div class="products-grid">
+
+    <!--MEN 12-->
+    <a href="leadz/watches/men/Men-12.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/12/M12-3.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 9233</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">5,500.00</span>
+                <span class="original">7,900.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 13-->
+    <a href="leadz/watches/men/Men-13.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/13/M13-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 8051L</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">6,500.00</span>
+                <span class="original">8,700.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 14-->
+    <a href="leadz/watches/men/Men-14.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/14/M14-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 9248L</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">4,500.00</span>
+                <span class="original">6,300.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 15-->
+    <a href="leadz/watches/men/Men-15.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/15/M15-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 8078</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">4,200.00</span>
+                <span class="original">6,250.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 16-->
+    <a href="leadz/watches/men/Men-16.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/16/M16-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 8072</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">7,000.00</span>
+                <span class="original">10,350.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--WOMEN 5-->
+    <a href="leadz/watches/women/Women-5.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/women/5/W5-1.jpg" alt="Womens Watch">
+            <h4>NAVIFORCE 9226 – Women’s Watch</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">5,500.00</span>
+                <span class="original">8,350.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--WOMEN 6-->
+    <a href="leadz/watches/women/Women-6.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/women/6/W6-1.jpg" alt="Womens Watch">
+            <h4>NAVIFORCE 5060 – Ladies Watch</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">4,000.00</span>
+                <span class="original">5,500.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 17-->
+    <a href="leadz/watches/men/Men-17.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/17/M17-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 9248L</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">4,500.00</span>
+                <span class="original">6,550.00</span>
+            </div>
+        </div>
+    </a>
+
+    <!--MEN 18-->
+    <a href="leadz/watches/men/Men-18.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/men/18/M18-1.jpg" alt="Mens Watch">
+            <h4>NAVIFORCE 9068L – Unisex Watch</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">8,000.00</span>
+                <span class="original">12,500.00</span>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+<!-- Browse More Button -->
+<div style="text-align: center; margin: 30px 0;">
+    <a href="../../../../index.html" class="browse-more-btn">
+        Browse More
+    </a>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.products-grid');
+        const cards = Array.from(grid.children);
+        const shuffled = cards.sort(() => Math.random() - 0.5);
+
+        // Clear existing cards
+        grid.innerHTML = '';
+
+        // Append shuffled cards
+        shuffled.forEach(card => grid.appendChild(card));
+    });
+</script>
+
+
+</body>
+</html>

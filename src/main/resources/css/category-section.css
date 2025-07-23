@@ -28,7 +28,8 @@
     background: linear-gradient(135deg, #967d96, #571651);
 }
 .category-grid > a:nth-child(3) .category-card {         /* Bundles */
-    background: linear-gradient(135deg, #ffb284, #572e17);
+    background: linear-gradient(135deg, #548070, #05241d);
+    /*background: linear-gradient(135deg, #ffb284, #572e17);*/
 }
 .category-grid > a:nth-child(4) .category-card {         /* Couple */
     background: linear-gradient(135deg, #a36f79, #571623);
