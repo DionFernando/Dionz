@@ -156,7 +156,7 @@ h2 {
 }
 
 .card h4 {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     color: #7a7a7a;
     margin: 0 0 0.3rem;
     font-weight: 400;
@@ -183,13 +183,13 @@ h2 {
 }
 
 .price .current {
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: var(--dark-gold);
 }
 
 .price .original {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-decoration: line-through;
     color: var(--gray);
 }
