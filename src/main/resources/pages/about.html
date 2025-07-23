@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | YourWatchBrand</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 3rem 2rem;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .hero-text p {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .hero-text a.btn {
+      display: inline-block;
+      background: #1a73e8;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(26,115,232,0.4);
+      transition: background 0.3s ease;
+    }
+    .hero-text a.btn:hover {
+      background: #155ab6;
+      box-shadow: 0 6px 25px rgba(21,90,182,0.5);
+    }
+
+    /* Hero Image */
+    .hero-img {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .hero-img img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Mission & Vision Section */
+    .mission-vision {
+      margin-top: 4rem;
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      background: #fff;
+      flex: 1 1 300px;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 1.8rem;
+    }
+    .card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Values Section */
+    .values {
+      margin-top: 4rem;
+      text-align: center;
+    }
+    .values h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 1.2px;
+    }
+    .values-list {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .value-item {
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      width: 200px;
+      box-shadow: 0 6px 18px rgba(26,115,232,0.15);
+      transition: box-shadow 0.3s ease;
+    }
+    .value-item:hover {
+      box-shadow: 0 10px 30px rgba(26,115,232,0.35);
+    }
+    .value-item svg {
+      width: 40px;
+      height: 40px;
+      fill: #1a73e8;
+      margin-bottom: 1rem;
+    }
+    .value-item h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+    .value-item p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      margin: 5rem 0 3rem;
+      text-align: center;
+    }
+    .footer-cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+    .footer-cta a.btn {
+      background: #e63946;
+      padding: 1rem 3rem;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(230,57,70,0.5);
+    }
+    .footer-cta a.btn:hover {
+      background: #b8323d;
+      box-shadow: 0 8px 28px rgba(184,50,61,0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      .mission-vision {
+        flex-direction: column;
+      }
+      .values-list {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .value-item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<main class="container" role="main">
+  <!-- Hero -->
+  <section class="hero" aria-label="About our watch brand introduction">
+    <div class="hero-text">
+      <h1>Crafting Timepieces That Define You</h1>
+      <p>At <strong>YourWatchBrand</strong>, we believe a watch is more than just a tool — it’s a statement. Our passion is designing timeless watches that blend precision, innovation, and elegance to elevate your everyday style.</p>
+      <a href="#mission" class="btn" aria-label="Learn more about our mission">Discover Our Journey</a>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Close up of luxury watch on wrist" />
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision" id="mission" aria-label="Our mission and vision statements">
+    <article class="card">
+      <h2>Our Mission</h2>
+      <p>To craft exquisite watches that combine cutting-edge technology with classic design, offering unmatched quality and style to watch lovers worldwide.</p>
+    </article>
+    <article class="card">
+      <h2>Our Vision</h2>
+      <p>To be a global leader in horology by inspiring confidence and sophistication, turning every moment into a timeless memory.</p>
+    </article>
+  </section>
+
+  <!-- Core Values -->
+  <section class="values" aria-label="Our core brand values">
+    <h2>What We Stand For</h2>
+    <div class="values-list">
+      <div class="value-item" role="article">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1.75a10.25 10.25 0 1 0 10.25 10.25A10.262 10.262 0 0 0 12 1.75Zm0 18.5a8.25 8.25 0 1 1 8.25-8.25 8.26 8.26 0 0 1-8.25 8.25Zm.5-13.75v4.625l3.5 2.1-.75 1.23-4.75-2.85V6.5Z"/></svg>
+        <h3>Precision</h3>
+        <p>Every watch undergoes rigorous testing to ensure impeccable accuracy and durability.</p>
+      </div>
+      <div class="value-item" role="article">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8Zm0-14a6 6 0 1 0 6 6 6.007 6.007 0 0 0-6-6Z"/></svg>
+        <h3>Innovation</h3>
+        <p>We blend traditional craftsmanship with modern tech to push watchmaking forward.</p>
+      </div>
+      <div class="value-item" role="article">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9Zm.75 13.5h-1.5v-1.5h1.5Zm0-3h-1.5v-6h1.5Z"/></svg>
+        <h3>Integrity</h3>
+        <p>Honesty and transparency guide everything we do, from materials to customer care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="footer-cta">
+    <h2>Ready to Wear Time Differently?</h2>
+    <a href="/shop" class="btn" aria-label="Shop watches now">Shop Our Collection</a>
+  </section>
+</main>
+</body>
+</html>
