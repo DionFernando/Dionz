@@ -35,7 +35,8 @@
     background: linear-gradient(135deg, #a36f79, #571623);
 }
 .category-grid > a:nth-child(5) .category-card {         /* Accessories */
-    background: linear-gradient(135deg, #f5d97e, #ab9d32);
+    /*background: linear-gradient(135deg, #f5d97e, #ab9d32);*/
+    background: linear-gradient(135deg, #7a7469, #2e2312);
 }
 .category-grid > a:nth-child(6) .category-card {         /* Boxes */
     background: linear-gradient(135deg, #7a7469, #2e2312);

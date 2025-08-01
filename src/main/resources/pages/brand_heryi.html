@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../resources/css/dashboard.css" />
     <link rel="stylesheet" href="../css/watch.css" />
     <link rel="stylesheet" href="../css/browse_more.css" />
+    <link rel="stylesheet" href="../css/sorting.css" />
 
     <style>
         body {
@@ -29,6 +30,19 @@
 
 <!-- Title -->
 <h2>HERYI</h2>
+
+<!-- Sort By Dropdown -->
+<div class="sort-wrapper">
+    <label for="sort-select">Sort by:</label>
+    <div class="select-container">
+        <select id="sort-select">
+            <option value="default">Default</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+        </select>
+        <span class="arrow">&#9662;</span>
+    </div>
+</div>
 
 <!-- Products Grid -->
 <div class="products-grid">
@@ -59,6 +73,19 @@
         </div>
     </a>
 
+    <!--WOMEN 7-->
+    <a href="leadz/watches/women/Women-7.html?id=1" class="card-link">
+        <div class="card">
+            <img src="../assets/leadz/watches/women/7/W7-5.jpg" alt="Womens Watch">
+            <h4>HERYI LADIES Watch</h4>
+            <div class="price">
+                <span class="currency">LKR</span>
+                <span class="current">3,500.00</span>
+                <span class="original">4,600.00</span>
+            </div>
+        </div>
+    </a>
+
 </div>
 
 
@@ -69,6 +96,7 @@
     </a>
 </div>
 
+<script src="../js/sorting.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {

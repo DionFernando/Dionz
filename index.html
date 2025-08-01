@@ -279,7 +279,6 @@
     }
 
 
-
   </style>
 
 </head>
@@ -334,12 +333,12 @@
     <!-- Categories -->
     <div class="categories-flex">
       <div class="categories-flex">
-        <a href="src/main/resources/pages/men.html"         class="category-item"><span>Men</span></a>
-        <a href="src/main/resources/pages/women.html"       class="category-item"><span>Women</span></a>
+        <a href="src/main/resources/pages/men.html"         class="category-item"><span>Mens</span></a>
+        <a href="src/main/resources/pages/women.html"       class="category-item"><span>Womens</span></a>
         <a href="src/main/resources/pages/brands.html"      class="category-item"><span>Brands</span></a>
-        <a href="src/main/resources/pages/bundle.html"      class="category-item"><span>Bundle</span></a>
+        <a href="src/main/resources/pages/bundle.html"      class="category-item"><span>Bundles</span></a>
 <!--        <a href="src/main/resources/pages/couple.html"      class="category-item"><span>Couple</span></a>-->
-        <a href="src/main/resources/pages/accessories.html" class="category-item"><span>Accessories</span></a>
+<!--        <a href="src/main/resources/pages/accessories.html" class="category-item"><span>Accessories</span></a>-->
         <a href="src/main/resources/pages/cases.html"      class="category-item"><span>Boxes</span></a>
 <!--        <a href="src/main/resources/pages/luxury.html"      class="category-item"><span>Luxury</span></a>-->
 
@@ -377,11 +376,11 @@
         <h6>Quick Links</h6>
         <ul class="list-unstyled">
           <li><a href="#">Home</a></li>
-          <li><a href="src/main/resources/pages/men.html">Men</a></li>
-          <li><a href="src/main/resources/pages/women.html">Women</a></li>
-          <li><a href="src/main/resources/pages/brands.html">Brands</a></li>
-          <li><a href="src/main/resources/pages/bundle.html">Bundle</a></li>
-          <li><a href="src/main/resources/pages/accessories.html">Accessories</a></li>
+          <li><a href="src/main/resources/pages/men.html">Mens</a></li>
+          <li><a href="src/main/resources/pages/women.html">Womens</a></li>
+          <li><a href="src/main/resources/pages/brands.html">Brandss</a></li>
+          <li><a href="src/main/resources/pages/bundle.html">Bundles</a></li>
+<!--          <li><a href="src/main/resources/pages/accessories.html">Accessories</a></li>-->
           <li><a href="src/main/resources/pages/cases.html">Boxes</a></li>
           <!--<li><a href="src/main/resources/pages/about.html">About</a></li>-->
           <li><a href="https://wa.me/94785557797">Contact</a></li>
@@ -460,6 +459,35 @@
 
     pickRandomFeatured();
     shuffleCards();
+    setupSorting();
+  }
+
+  function setupSorting() {
+    const sortSelect = document.querySelector("#sort-select");
+    const grid = document.querySelector("#dynamicContent .products-grid");
+
+    if (!sortSelect || !grid) return;
+
+    const originalCards = Array.from(grid.children);
+
+    sortSelect.addEventListener("change", () => {
+      const selected = sortSelect.value;
+      let sortedCards;
+
+      if (selected === "default") {
+        sortedCards = [...originalCards];
+      } else {
+        sortedCards = Array.from(grid.children).sort((a, b) => {
+          const priceA = parseFloat(a.querySelector(".current").textContent.replace(/,/g, ''));
+          const priceB = parseFloat(b.querySelector(".current").textContent.replace(/,/g, ''));
+          return selected === "low-high" ? priceA - priceB : priceB - priceA;
+        });
+      }
+
+      // Clear and append
+      grid.innerHTML = "";
+      sortedCards.forEach(card => grid.appendChild(card));
+    });
   }
 
   // NEW: keep one random .featured-watch-item, hide the others

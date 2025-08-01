@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../resources/css/dashboard.css" />
     <link rel="stylesheet" href="../css/watch.css" />
     <link rel="stylesheet" href="../css/browse_more.css" />
+    <link rel="stylesheet" href="../css/sorting.css" />
 
     <style>
         body {
@@ -31,13 +32,27 @@
 <!-- Title -->
 <h2>Mens Watches</h2>
 
+<!-- Sort By Dropdown -->
+<div class="sort-wrapper">
+    <label for="sort-select">Sort by:</label>
+    <div class="select-container">
+        <select id="sort-select">
+            <option value="default">Default</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+        </select>
+        <span class="arrow">&#9662;</span>
+    </div>
+</div>
+
+
 <!-- Products Grid -->
 <div class="products-grid">
 
     <!--MEN 1-->
     <a href="leadz/watches/men/Men-1.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/1/M1-5.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/1/M1-6.png" alt="Mens Watch">
             <h4>CAITES Watch</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -63,7 +78,7 @@
     <!--MEN 3-->
     <a href="leadz/watches/men/Men-3.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/3/M3-4.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/3/M3-6.png" alt="Mens Watch">
             <h4>BAISHENG Gold – Stainless Steel(With Date Indicator)</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -89,7 +104,7 @@
     <!--MEN 4-->
     <a href="leadz/watches/men/Men-4.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/4/M4-18.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/4/M4-19.png" alt="Mens Watch">
             <h4>BAISHENG Square Shaped Watch</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -102,7 +117,7 @@
     <!--MEN 5-->
     <a href="leadz/watches/men/Men-5.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/5/M5-2.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/5/M5-6.png" alt="Mens Watch">
             <h4>Baisheng Silver-Gold-Black(With Date Indicator)</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -115,7 +130,7 @@
     <!--MEN 6-->
     <a href="leadz/watches/men/Men-6.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/6/M6-4.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/6/M6-5.png" alt="Mens Watch">
             <h4>BAISHENG Unisex Watch</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -128,7 +143,7 @@
     <!--MEN 7-->
     <a href="leadz/watches/men/Men-7.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/7/M7-4.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/7/M7-6.png" alt="Mens Watch">
             <h4>BAISHENG Silver Watch(With Date Indicator)</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -154,8 +169,8 @@
     <!--MEN 9-->
     <a href="leadz/watches/men/Men-9.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/9/M9-1.jpg" alt="Mens Watch">
-            <h4>Elegant BAISHENG</h4>
+            <img src="../assets/leadz/watches/men/9/M9-6.png" alt="Mens Watch">
+            <h4>Elegant BAISHENG Watch</h4>
             <div class="price">
                 <span class="currency">LKR</span>
                 <span class="current">2,500.00</span>
@@ -180,7 +195,7 @@
     <!--MEN 11-->
     <a href="leadz/watches/men/Men-11.html?id=1" class="card-link">
         <div class="card">
-            <img src="../assets/leadz/watches/men/11/M11-4.jpg" alt="Mens Watch">
+            <img src="../assets/leadz/watches/men/11/M11-6.png" alt="Mens Watch">
             <h4>CASIO Watch</h4>
             <div class="price">
                 <span class="currency">LKR</span>
@@ -292,6 +307,7 @@
 </div>
 
 
+<script src="../js/sorting.js"></script>
 
 
 <script>

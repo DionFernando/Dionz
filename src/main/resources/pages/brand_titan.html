@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../resources/css/dashboard.css" />
   <link rel="stylesheet" href="../css/watch.css" />
   <link rel="stylesheet" href="../css/browse_more.css" />
+  <link rel="stylesheet" href="../css/sorting.css" />
 
   <style>
     body {
@@ -30,13 +31,27 @@
 <!-- Title -->
 <h2>CASIO</h2>
 
+<!-- Sort By Dropdown -->
+<div class="sort-wrapper">
+  <label for="sort-select">Sort by:</label>
+  <div class="select-container">
+    <select id="sort-select">
+      <option value="default">Default</option>
+      <option value="low-high">Price: Low to High</option>
+      <option value="high-low">Price: High to Low</option>
+    </select>
+    <span class="arrow">&#9662;</span>
+  </div>
+</div>
+
+
 <!-- Products Grid -->
 <div class="products-grid">
 
   <!--MEN 2-->
   <a href="leadz/watches/men/Men-2.html?id=1" class="card-link">
     <div class="card">
-      <img src="../assets/leadz/watches/men/2/M2-7.jpg" alt="Mens Watch">
+      <img src="../assets/leadz/watches/men/2/M2-10.png" alt="Mens Watch">
       <h4>TITAN Watch</h4>
       <div class="price">
         <span class="currency">LKR</span>
@@ -56,6 +71,7 @@
   </a>
 </div>
 
+<script src="../js/sorting.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

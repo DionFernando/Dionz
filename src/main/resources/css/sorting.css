@@ -1,0 +1,61 @@
+.sort-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    padding: 0.5rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+.sort-wrapper label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+.select-container select {
+    font-size: 0.85rem;
+    padding: 0.4rem 2rem 0.4rem 0.8rem;
+    border-radius: 20px;
+    border: 1px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-container .arrow {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--black);
+    pointer-events: none;
+}
+
+/* Mobile tweaks */
+@media (max-width: 575.98px) {
+    .sort-wrapper {
+        justify-content: right;
+        padding: 0.5rem 1rem;
+    }
+
+    .sort-wrapper label {
+        font-size: 0.7rem;
+    }
+
+    .select-container select {
+        font-size: 0.7rem;
+        padding: 0.25rem 1.6rem 0.25rem 0.6rem;
+    }
+
+    .select-container .arrow {
+        font-size: 1rem;
+    }
+}

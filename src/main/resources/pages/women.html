@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../resources/css/dashboard.css" />
   <link rel="stylesheet" href="../css/watch.css" />
   <link rel="stylesheet" href="../css/browse_more.css" />
+  <link rel="stylesheet" href="../css/sorting.css" />
 
   <style>
     body {
@@ -30,6 +31,19 @@
 <!-- Title -->
 <h2>Womens Watches</h2>
 
+<!-- Sort By Dropdown -->
+<div class="sort-wrapper">
+  <label for="sort-select">Sort by:</label>
+  <div class="select-container">
+    <select id="sort-select">
+      <option value="default">Default</option>
+      <option value="low-high">Price: Low to High</option>
+      <option value="high-low">Price: High to Low</option>
+    </select>
+    <span class="arrow">&#9662;</span>
+  </div>
+</div>
+
 <!-- Products Grid -->
 <div class="products-grid">
 
@@ -49,7 +63,7 @@
   <!--WOMEN 2-->
   <a href="leadz/watches/women/Women-2.html?id=1" class="card-link">
     <div class="card">
-      <img src="../assets/leadz/watches/women/2/W2-2.jpg" alt="Womens Watch">
+      <img src="../assets/leadz/watches/women/2/W2-5.png" alt="Womens Watch">
       <h4>BAISHENG Silver – Women’s Edition</h4>
       <div class="price">
         <span class="currency">LKR</span>
@@ -101,7 +115,7 @@
   <!--MEN 6-->
   <a href="leadz/watches/men/Men-6.html?id=1" class="card-link">
     <div class="card">
-      <img src="../assets/leadz/watches/men/6/M6-4.jpg" alt="Mens Watch">
+      <img src="../assets/leadz/watches/men/6/M6-5.png" alt="Mens Watch">
       <h4>BAISHENG Unisex Watch</h4>
       <div class="price">
         <span class="currency">LKR</span>
@@ -150,6 +164,32 @@
     </div>
   </a>
 
+  <!--WOMEN 7-->
+  <a href="leadz/watches/women/Women-7.html?id=1" class="card-link">
+    <div class="card">
+      <img src="../assets/leadz/watches/women/7/W7-5.jpg" alt="Womens Watch">
+      <h4>HERYI LADIES Watch</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">3,500.00</span>
+        <span class="original">4,600.00</span>
+      </div>
+    </div>
+  </a>
+
+  <!--WOMEN 8-->
+  <a href="leadz/watches/women/Women-8.html?id=1" class="card-link">
+    <div class="card">
+      <img src="../assets/leadz/watches/women/8/W8-5.jpg" alt="Womens Watch">
+      <h4>CITIZEN LADIES Watch</h4>
+      <div class="price">
+        <span class="currency">LKR</span>
+        <span class="current">3,500.00</span>
+        <span class="original">5,500.00</span>
+      </div>
+    </div>
+  </a>
+
 
 </div>
 
@@ -159,6 +199,8 @@
     Browse More
   </a>
 </div>
+
+<script src="../js/sorting.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

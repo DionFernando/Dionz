@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dionz Launching Soon</title>
+    <style>
+        :root {
+            --gold: #edcd84;
+            --dark-gold: #c2a563;
+            --black: #000;
+            --white: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 img {
+            height: 80px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            color: var(--white);
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+
+
+<body>
+<h1><img src="../../../assets/logo/Transparent%20W-2.png" alt="Dionz Logo" /></h1>
+<p>Launching on August 4th, 2025</p>
+<div class="countdown" id="countdown">
+    <div class="time-box">
+        <div id="days">--</div>
+        <div class="label">Days</div>
+    </div>
+    <div class="time-box">
+        <div id="hours">--</div>
+        <div class="label">Hours</div>
+    </div>
+    <div class="time-box">
+        <div id="minutes">--</div>
+        <div class="label">Minutes</div>
+    </div>
+    <div class="time-box">
+        <div id="seconds">--</div>
+        <div class="label">Seconds</div>
+    </div>
+</div>
+
+<script>
+    const targetDate = new Date('2025-08-04T12:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "We're live!";
+        }
+    }
+
+    const x = setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
